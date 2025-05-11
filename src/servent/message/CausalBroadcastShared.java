@@ -7,6 +7,9 @@ import servent.handler.NullHandler;
 import servent.handler.TransactionHandler;
 import servent.handler.snapshot.acharya_badrinath.AbResultHandler;
 import servent.handler.snapshot.acharya_badrinath.AbTokenHandler;
+import servent.handler.snapshot.alagar_venkatesan.AvDoneHandler;
+import servent.handler.snapshot.alagar_venkatesan.AvTerminateHandler;
+import servent.handler.snapshot.alagar_venkatesan.AvTokenHandler;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -130,6 +133,7 @@ public class CausalBroadcastShared {
                                     messageHandler = new TransactionHandler(pendingMessage, snapshotCollector.getBitcakeManager());
                                 }
                                 break;
+
                             case AB_TOKEN:
                                 AppConfig.timestampedStandardPrint("Processing token: " + pendingMessage);
                                 messageHandler = new AbTokenHandler(pendingMessage, snapshotCollector);
@@ -139,6 +143,19 @@ public class CausalBroadcastShared {
                                 if (pendingMessage.getReceiverInfo().getId() == AppConfig.myServentInfo.getId()) {
                                     messageHandler = new AbResultHandler(pendingMessage, snapshotCollector);
                                 }
+                                break;
+
+                            case AV_TOKEN:
+                                AppConfig.timestampedStandardPrint("Processing token: " + pendingMessage);
+                                messageHandler = new AvTokenHandler(pendingMessage, snapshotCollector);
+                                break;
+                            case AV_DONE:
+                                AppConfig.timestampedStandardPrint("Processing done: " + pendingMessage);
+                                messageHandler = new AvDoneHandler(pendingMessage, snapshotCollector);
+                                break;
+                            case AV_TERMINATE:
+                                AppConfig.timestampedStandardPrint("Processing terminate: " + pendingMessage);
+                                messageHandler = new AvTerminateHandler(pendingMessage, snapshotCollector);
                                 break;
                         }
                         handlerThreadPool.submit(messageHandler);
@@ -153,22 +170,6 @@ public class CausalBroadcastShared {
     }
 
     public static void stop(){ handlerThreadPool.shutdown(); }
-
-//    public static void addReceivedTransaction(Message receivedTransaction) {
-//        receivedTransactions.add(receivedTransaction);
-//    }
-//
-//    public static List<Message> getReceivedTransactions() {
-//        return receivedTransactions;
-//    }
-//
-//    public static void addSendTransaction(Message sendTransaction) {
-//        sendTransactions.add(sendTransaction);
-//    }
-//
-//    public static List<Message> getSendTransactions() {
-//        return sendTransactions;
-//    }
 
     public static Object getPendingMessagesLock() {
         return pendingMessagesLock;

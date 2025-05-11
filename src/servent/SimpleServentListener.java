@@ -16,6 +16,9 @@ import app.snapshot_bitcake.SnapshotType;
 import servent.handler.*;
 import servent.handler.snapshot.acharya_badrinath.AbResultHandler;
 import servent.handler.snapshot.acharya_badrinath.AbTokenHandler;
+import servent.handler.snapshot.alagar_venkatesan.AvDoneHandler;
+import servent.handler.snapshot.alagar_venkatesan.AvTerminateHandler;
+import servent.handler.snapshot.alagar_venkatesan.AvTokenHandler;
 import servent.handler.snapshot.coordinated_checkpointing.KcAckHandler;
 import servent.handler.snapshot.coordinated_checkpointing.KcRequestHandler;
 import servent.handler.snapshot.coordinated_checkpointing.KcResumeHandler;
@@ -67,8 +70,6 @@ public class SimpleServentListener implements Runnable, Cancellable {
 
 				//GOT A MESSAGE! <3
 				clientMessage = MessageUtil.readMessage(clientSocket);
-
-
 				
 				MessageHandler messageHandler = new NullHandler(clientMessage);
 				/*
@@ -96,6 +97,16 @@ public class SimpleServentListener implements Runnable, Cancellable {
 						break;
 					case AB_TOKEN:
 						messageHandler = new AbTokenHandler(clientMessage, snapshotCollector);
+						break;
+
+					case AV_TOKEN:
+						messageHandler = new AvTokenHandler(clientMessage, snapshotCollector);
+						break;
+					case AV_DONE:
+						messageHandler = new AvDoneHandler(clientMessage, snapshotCollector);
+						break;
+					case AV_TERMINATE:
+						messageHandler = new AvTerminateHandler(clientMessage, snapshotCollector);
 						break;
 
 					case POISON:

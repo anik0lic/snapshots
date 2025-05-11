@@ -1,6 +1,7 @@
 package app.snapshot_bitcake;
 
 import app.snapshot_bitcake.acharya_badrinath.AbSnapshotResult;
+import app.snapshot_bitcake.alagar_venkatesan.AvSnapshotResult;
 import app.snapshot_bitcake.coordinated_checkpointing.KcSnapshotResult;
 
 /**
@@ -27,6 +28,11 @@ public class NullSnapshotCollector implements SnapshotCollector {
 
 	@Override
 	public void addAbSnapshotInfo(int id, AbSnapshotResult abSnapshotResult) {}
+
+	@Override
+	public void addAvSnapshotInfo(int id, AvSnapshotResult avSnapshotResult) {
+
+	}
 
 	@Override
 	public void startCollecting() {}

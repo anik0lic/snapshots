@@ -2,6 +2,7 @@ package app.snapshot_bitcake;
 
 import app.Cancellable;
 import app.snapshot_bitcake.acharya_badrinath.AbSnapshotResult;
+import app.snapshot_bitcake.alagar_venkatesan.AvSnapshotResult;
 import app.snapshot_bitcake.coordinated_checkpointing.KcSnapshotResult;
 
 /**
@@ -16,6 +17,7 @@ public interface SnapshotCollector extends Runnable, Cancellable {
 
 	void addKcSnapshotInfo(int id, KcSnapshotResult kcSnapshotResult);
 	void addAbSnapshotInfo(int id, AbSnapshotResult abSnapshotResult);
+	void addAvSnapshotInfo(int id, AvSnapshotResult avSnapshotResult);
 
 	void startCollecting();
 

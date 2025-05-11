@@ -1,0 +1,2 @@
+22:22:36 - Tell amount handler got: [4|1||AV_TOKEN|0]
+22:22:49 - Tell amount handler got: [4|9||AV_TOKEN|0]

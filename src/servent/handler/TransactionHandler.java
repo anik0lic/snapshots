@@ -3,6 +3,7 @@ package servent.handler;
 import app.AppConfig;
 import app.snapshot_bitcake.BitcakeManager;
 import app.snapshot_bitcake.acharya_badrinath.AbBitcakeManager;
+import app.snapshot_bitcake.alagar_venkatesan.AvBitcakeManager;
 import servent.message.Message;
 import servent.message.MessageType;
 
@@ -34,6 +35,9 @@ public class TransactionHandler implements MessageHandler {
 			if (bitcakeManager instanceof AbBitcakeManager) {
 				AbBitcakeManager abBitcakeManager = (AbBitcakeManager) bitcakeManager;
 				abBitcakeManager.recordReceivedTransaction(clientMessage.getOriginalSenderInfo().getId(), clientMessage);
+			} else if (bitcakeManager instanceof AvBitcakeManager) {
+				AvBitcakeManager avBitcakeManager = (AvBitcakeManager) bitcakeManager;
+				avBitcakeManager.recordAvChannelMessage(clientMessage);
 			}
 		} else {
 			AppConfig.timestampedErrorPrint("Transaction handler got: " + clientMessage);

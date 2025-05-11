@@ -10,6 +10,8 @@ import app.AppConfig;
 import app.ServentInfo;
 import app.snapshot_bitcake.acharya_badrinath.AbBitcakeManager;
 import app.snapshot_bitcake.acharya_badrinath.AbSnapshotResult;
+import app.snapshot_bitcake.alagar_venkatesan.AvBitcakeManager;
+import app.snapshot_bitcake.alagar_venkatesan.AvSnapshotResult;
 import app.snapshot_bitcake.coordinated_checkpointing.KcBitcakeManager;
 import app.snapshot_bitcake.coordinated_checkpointing.KcSnapshotResult;
 import servent.message.Message;
@@ -32,6 +34,7 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 
 	private Map<Integer, KcSnapshotResult> collectedKcValues = new ConcurrentHashMap<>();
 	private Map<Integer, AbSnapshotResult> collectedAbValues = new ConcurrentHashMap<>();
+	private Map<Integer, AvSnapshotResult> collectedAvValues = new ConcurrentHashMap<>();
 
 	private SnapshotType snapshotType;
 	
@@ -47,6 +50,10 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 
 			case ACHARYA_BADRINATH:
 				this.bitcakeManager = new AbBitcakeManager();
+				break;
+
+			case ALAGAR_VENKATESAN:
+				this.bitcakeManager = new AvBitcakeManager();
 				break;
 
 			case NONE:
@@ -98,6 +105,11 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 					((AbBitcakeManager) bitcakeManager).handleRequest(this);
 					break;
 
+				case ALAGAR_VENKATESAN:
+					AppConfig.timestampedStandardPrint("Starting ALAGAR_VENKATESAN snapshot.");
+					((AvBitcakeManager) bitcakeManager).handleRequest(this);
+					break;
+
 				case NONE:
 					//Shouldn't be able to come here. See constructor.
 					break;
@@ -115,6 +127,12 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 
 					case ACHARYA_BADRINATH:
 						if (collectedAbValues.size() == AppConfig.getServentCount()) {
+							waiting = false;
+						}
+						break;
+
+					case ALAGAR_VENKATESAN:
+						if (collectedAvValues.size() == AppConfig.getServentCount()) {
 							waiting = false;
 						}
 						break;
@@ -195,6 +213,15 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 					break;
 
 				case ALAGAR_VENKATESAN:
+					AppConfig.timestampedStandardPrint("Alagar-Venkatesan Snapshot Results:");
+					totalBitcakes = 0;
+					for (Entry<Integer, AvSnapshotResult> entry : collectedAvValues.entrySet()) {
+						totalBitcakes += entry.getValue().getRecordedAmount();
+						AppConfig.timestampedStandardPrint("Servent " + entry.getKey() + ": " + entry.getValue().getRecordedAmount() + " bitcakes");
+					}
+					AppConfig.timestampedStandardPrint("Total bitcakes in system (AV): " + totalBitcakes);
+
+					collectedAvValues.clear();
 					break;
 
 				case NONE:
@@ -214,6 +241,11 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 	@Override
 	public void addAbSnapshotInfo(int id, AbSnapshotResult abSnapshotResult) {
 		collectedAbValues.put(id, abSnapshotResult);
+	}
+
+	@Override
+	public void addAvSnapshotInfo(int id, AvSnapshotResult avSnapshotResult) {
+		collectedAvValues.put(id, avSnapshotResult);
 	}
 
 

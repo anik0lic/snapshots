@@ -44,25 +44,13 @@ public class TransactionBurstCommand implements CLICommand {
 					int amount = 1 + rand.nextInt(MAX_TRANSFER_AMOUNT);
 
 					Message transactionMessage;
-					
-					/*
-					 * The message itself will reduce our bitcake count as it is being sent.
-					 * The sending might be delayed, so we want to make sure we do the
-					 * reducing at the right time, not earlier.
-					 */
+
 					Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcastShared.getVectorClock());
 
-//					if (AppConfig.SNAPSHOT_TYPE == SnapshotType.ACHARYA_BADRINATH) {
 					transactionMessage = new TransactionMessage(
 							AppConfig.myServentInfo, neighborInfo, amount, bitcakeManager, vectorClock);
 
 					MessageUtil.sendMessage(transactionMessage);
-//					}
-//					else {
-//						transactionMessage = new TransactionMessage(
-//								AppConfig.myServentInfo, neighborInfo, amount, bitcakeManager, vectorClock);
-//						MessageUtil.sendMessage(transactionMessage);
-//					}
 				}
 				
 			}

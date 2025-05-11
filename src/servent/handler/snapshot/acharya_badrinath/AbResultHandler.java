@@ -37,10 +37,5 @@ public class AbResultHandler implements MessageHandler {
                     abResultMessage.getABSnapshotResult()
             );
         }
-//        AbResultMessage abResultMessage = (AbResultMessage) clientMessage;
-//        snapshotCollector.addAbSnapshotInfo(
-//                abResultMessage.getOriginalSenderInfo().getId(),
-//                abResultMessage.getABSnapshotResult()
-//        );
     }
 }

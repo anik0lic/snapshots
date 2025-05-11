@@ -16,7 +16,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.BiFunction;
 
 public class AbBitcakeManager implements BitcakeManager {
     private final AtomicInteger currentAmount = new AtomicInteger(1000);
@@ -109,7 +108,6 @@ public class AbBitcakeManager implements BitcakeManager {
 
     public void resetSnapshotState() {
         hasRecordedSnapshot.set(false);
-        // Optionally clear sent/received maps if they should be isolated per snapshot
     }
 
     public Map<Integer, List<Message>> getSent() {
