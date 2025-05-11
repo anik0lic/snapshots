@@ -10,19 +10,16 @@ public class KcSnapshotResult implements Serializable {
 
     private final int serventId;
     private final int recordedAmount;
-//    private final Map<String, List<Integer>> allChannelMessages;
 
     public KcSnapshotResult(int serventId, int recordedAmount) {
         this.serventId = serventId;
         this.recordedAmount = recordedAmount;
     }
+
     public int getServentId() {
         return serventId;
     }
     public int getRecordedAmount() {
         return recordedAmount;
     }
-//    public Map<String, List<Integer>> getAllChannelMessages() {
-//        return allChannelMessages;
-//    }
 }

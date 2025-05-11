@@ -45,8 +45,8 @@ public class KcBitcakeManager implements BitcakeManager {
 
         AppConfig.timestampedStandardPrint("Handling snapshot request from " + initiatorId);
         blocked.set(true);
-        snapshotAmount.set(currentAmount.get());
         int recordedAmount = currentAmount.get();
+        snapshotAmount.set(recordedAmount);
 
         KcSnapshotResult result = new KcSnapshotResult(AppConfig.myServentInfo.getId(), recordedAmount);
 

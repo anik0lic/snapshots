@@ -169,16 +169,16 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 			}
 			
 			//print
-			int sum;
+			int totalBitcakes;
 			switch (snapshotType) {
 				case COORDINATED_CHECKPOINTING:
 					AppConfig.timestampedStandardPrint("Coordinated Checkpointing Snapshot Results:");
-					sum = 0;
+					totalBitcakes = 0;
 					for (Entry<Integer, KcSnapshotResult> entry : collectedKcValues.entrySet()) {
-						sum += entry.getValue().getRecordedAmount();
+						totalBitcakes += entry.getValue().getRecordedAmount();
 						AppConfig.timestampedStandardPrint("Servent " + entry.getKey() + ": " + entry.getValue().getRecordedAmount() + " bitcakes");
 					}
-					AppConfig.timestampedStandardPrint("Total bitcakes in system (KC): " + sum);
+					AppConfig.timestampedStandardPrint("Total bitcakes in system (KC): " + totalBitcakes);
 
 					AppConfig.timestampedStandardPrint("KC Snapshot complete. Sending RESUME to neighbors.");
 					for (int i = 0; i < AppConfig.getServentCount(); i++) {
@@ -194,15 +194,13 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 					}
 
 					collectedKcValues.clear();
-					collecting.set(false);
-
 					break;
 
 				case ACHARYA_BADRINATH:
 					AppConfig.timestampedStandardPrint("Acharya-Badrinath Snapshot Results:");
-					sum = 0;
+					totalBitcakes = 0;
 					for(Entry<Integer, AbSnapshotResult> entry : collectedAbValues.entrySet()) {
-						sum += entry.getValue().getRecordedAmount();
+						totalBitcakes += entry.getValue().getRecordedAmount();
 						AppConfig.timestampedStandardPrint("Servent " + entry.getKey() + ": " + entry.getValue().getRecordedAmount() + " bitcakes");
 					}
 
@@ -217,16 +215,15 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 									if (sent.size() != received.size()) {
 										int unreceived = Math.abs(sent.size() - received.size());
 										AppConfig.timestampedStandardPrint("Unreceived amounts between " + i + " and " + j + ": " + unreceived);
-										sum += unreceived;
+										totalBitcakes += unreceived;
 									}
 								}
 							}
 						}
 					}
 
-					AppConfig.timestampedStandardPrint("Total bitcakes in system (AB): " + sum);
+					AppConfig.timestampedStandardPrint("Total bitcakes in system (AB): " + totalBitcakes);
 					collectedAbValues.clear();
-					collecting.set(false);
 					break;
 
 				case ALAGAR_VENKATESAN:
