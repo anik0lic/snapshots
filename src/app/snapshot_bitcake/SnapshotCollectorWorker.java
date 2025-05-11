@@ -12,9 +12,7 @@ import app.snapshot_bitcake.acharya_badrinath.AbBitcakeManager;
 import app.snapshot_bitcake.acharya_badrinath.AbSnapshotResult;
 import app.snapshot_bitcake.coordinated_checkpointing.KcBitcakeManager;
 import app.snapshot_bitcake.coordinated_checkpointing.KcSnapshotResult;
-import servent.message.CausalBroadcastShared;
 import servent.message.Message;
-import servent.message.snapshot.acharya_badrinath.AbTokenMessage;
 import servent.message.snapshot.coordinated_checkpointing.KcRequestMessage;
 import servent.message.snapshot.coordinated_checkpointing.KcResumeMessage;
 import servent.message.util.MessageUtil;
@@ -98,15 +96,6 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 				case ACHARYA_BADRINATH:
 					AppConfig.timestampedStandardPrint("Starting ACHARYA_BADRINATH snapshot.");
 					((AbBitcakeManager) bitcakeManager).handleRequest(this);
-//					Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcastShared.getVectorClock());
-//
-//					Message tokenMessageMe = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.myServentInfo, vectorClock);
-//					MessageUtil.sendMessage(tokenMessageMe);
-//
-//					for (Integer neighborId : AppConfig.myServentInfo.getNeighbors()) {
-//						Message tokenMessage = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.getInfoById(neighborId), vectorClock);
-//						MessageUtil.sendMessage(tokenMessage);
-//					}
 					break;
 
 				case NONE:

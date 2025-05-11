@@ -52,17 +52,17 @@ public class TransactionBurstCommand implements CLICommand {
 					 */
 					Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcastShared.getVectorClock());
 
-					if (AppConfig.SNAPSHOT_TYPE == SnapshotType.ACHARYA_BADRINATH) {
-						transactionMessage = new TransactionMessage(
-								AppConfig.myServentInfo, neighborInfo, amount, bitcakeManager, vectorClock);
+//					if (AppConfig.SNAPSHOT_TYPE == SnapshotType.ACHARYA_BADRINATH) {
+					transactionMessage = new TransactionMessage(
+							AppConfig.myServentInfo, neighborInfo, amount, bitcakeManager, vectorClock);
 
-						MessageUtil.sendMessage(transactionMessage);
-					}
-					else {
-						transactionMessage = new TransactionMessage(
-								AppConfig.myServentInfo, neighborInfo, amount, bitcakeManager, vectorClock);
-						MessageUtil.sendMessage(transactionMessage);
-					}
+					MessageUtil.sendMessage(transactionMessage);
+//					}
+//					else {
+//						transactionMessage = new TransactionMessage(
+//								AppConfig.myServentInfo, neighborInfo, amount, bitcakeManager, vectorClock);
+//						MessageUtil.sendMessage(transactionMessage);
+//					}
 				}
 				
 			}

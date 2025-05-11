@@ -64,25 +64,30 @@ public class AbBitcakeManager implements BitcakeManager {
     public void handleRequest(SnapshotCollector snapshotCollector) {
         Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcastShared.getVectorClock());
 
-        Message tokenMessageMe = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.myServentInfo, vectorClock);
+        Message tokenMessageMe = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.myServentInfo, vectorClock, AppConfig.myServentInfo);
         MessageUtil.sendMessage(tokenMessageMe);
 
         for (Integer neighborId : AppConfig.myServentInfo.getNeighbors()) {
-            Message tokenMessage = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.getInfoById(neighborId), vectorClock);
+            Message tokenMessage = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.getInfoById(neighborId), vectorClock, AppConfig.myServentInfo);
             MessageUtil.sendMessage(tokenMessage);
         }
     }
 
-    public void handleToken(ServentInfo collector, SnapshotCollector snapshotCollector) {
+    public void handleToken(Message message, SnapshotCollector snapshotCollector) {
         if (hasRecordedSnapshot.getAndSet(true)) {
-            AppConfig.timestampedStandardPrint("Already recorded a snapshot, ignoring token from " + collector);
+            AppConfig.timestampedStandardPrint("Already recorded a snapshot, ignoring token from " + message.getOriginalSenderInfo().getId());
             return;
         }
+
+        AppConfig.timestampedStandardPrint("Received AB_TOKEN from " + message.getOriginalSenderInfo().getId());
 
         int recordedAmount = getCurrentBitcakeAmount();
         Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcastShared.getVectorClock());
 
         AbSnapshotResult abSnapshotResult = new AbSnapshotResult(AppConfig.myServentInfo.getId(), recordedAmount, getSent(), getReceived());
+
+        ServentInfo collector = ((AbTokenMessage) message).getCollector();
+
         Message resultMessage = new AbResultMessage(AppConfig.myServentInfo, collector, vectorClock, abSnapshotResult);
 
         CausalBroadcastShared.commitCausalMessage(resultMessage, snapshotCollector);
@@ -90,10 +95,12 @@ public class AbBitcakeManager implements BitcakeManager {
         AppConfig.timestampedStandardPrint("Sent AB_RESULT to " + collector +
             " with amount: " + recordedAmount);
 
+        resetSnapshotState();
+
         for (Integer neighborId : AppConfig.myServentInfo.getNeighbors()) {
-            if (neighborId != collector.getId()) {
+            if (neighborId != message.getOriginalSenderInfo().getId()) {
                 ServentInfo neighborInfo = AppConfig.getInfoById(neighborId);
-                Message tokenMessage = new AbTokenMessage(AppConfig.myServentInfo, neighborInfo, vectorClock);
+                Message tokenMessage = new AbTokenMessage(AppConfig.myServentInfo, neighborInfo, vectorClock, collector);
                 MessageUtil.sendMessage(tokenMessage);
                 AppConfig.timestampedStandardPrint("Forwarded AB_TOKEN to neighbor " + neighborId);
             }

@@ -12,17 +12,26 @@ import java.util.Map;
 public class AbTokenMessage extends CausalMessage {
     private static final long serialVersionUID = 7296136760513950171L;
 
-    public AbTokenMessage(ServentInfo sender, ServentInfo receiver, Map<Integer, Integer> senderVectorClock) {
+    private final ServentInfo collector;
+
+    public AbTokenMessage(ServentInfo sender, ServentInfo receiver, Map<Integer, Integer> senderVectorClock,
+                          ServentInfo collector) {
         super(MessageType.AB_TOKEN, sender, receiver, "", senderVectorClock);
-        AppConfig.timestampedStandardPrint("Vector clock: " + senderVectorClock);
+
+        this.collector = collector;
     }
 
     private AbTokenMessage(ServentInfo originalSenderInfo, ServentInfo receiverInfo,
                            List<ServentInfo> routeList, String messageText,
-                           int messageId, Map<Integer, Integer> senderVectorClock) {
+                           int messageId, Map<Integer, Integer> senderVectorClock, ServentInfo collector) {
 
         super(MessageType.AB_TOKEN, originalSenderInfo, receiverInfo, routeList, messageText, messageId, senderVectorClock);
 
+        this.collector = collector;
+    }
+
+    public ServentInfo getCollector() {
+        return collector;
     }
 
     @Override
@@ -32,7 +41,7 @@ public class AbTokenMessage extends CausalMessage {
         List<ServentInfo> newRouteList = getRoute();
         newRouteList.add(myInfo);
         Message toReturn = new AbTokenMessage(getOriginalSenderInfo(), getReceiverInfo(),
-                newRouteList, getMessageText(), getMessageId(), getSenderVectorClock());
+                newRouteList, getMessageText(), getMessageId(), getSenderVectorClock(), getCollector());
 
         return toReturn;
 
@@ -44,7 +53,7 @@ public class AbTokenMessage extends CausalMessage {
         if (AppConfig.myServentInfo.getNeighbors().contains(newReceiverId)) {
             ServentInfo newReceiverInfo = AppConfig.getInfoById(newReceiverId);
             Message toReturn = new AbTokenMessage(getOriginalSenderInfo(), newReceiverInfo,
-                    getRoute(), getMessageText(), getMessageId(), getSenderVectorClock());
+                    getRoute(), getMessageText(), getMessageId(), getSenderVectorClock(), getCollector());
 
             return toReturn;
         } else {

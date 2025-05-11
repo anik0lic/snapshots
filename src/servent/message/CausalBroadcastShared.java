@@ -2,7 +2,6 @@ package servent.message;
 
 import app.AppConfig;
 import app.snapshot_bitcake.SnapshotCollector;
-import servent.handler.CausalMessageHandler;
 import servent.handler.MessageHandler;
 import servent.handler.NullHandler;
 import servent.handler.TransactionHandler;
@@ -34,8 +33,8 @@ public class CausalBroadcastShared {
 
     private static final ExecutorService handlerThreadPool = Executors.newWorkStealingPool();
 
-    private static final List<Message> sendTransactions = new CopyOnWriteArrayList<>();
-    private static final List<Message> receivedTransactions = new CopyOnWriteArrayList<>();
+//    private static final List<Message> sendTransactions = new CopyOnWriteArrayList<>();
+//    private static final List<Message> receivedTransactions = new CopyOnWriteArrayList<>();
 
     private static final Object cLock = new Object();
 
@@ -61,7 +60,6 @@ public class CausalBroadcastShared {
     }
 
     public static Map<Integer, Integer> getVectorClock() {
-//        return vectorClock;
         Map<Integer, Integer> toReturn = new HashMap<>();
         synchronized (cLock) {
             for (Map.Entry<Integer, Integer> m : vectorClock.entrySet()) {
@@ -156,21 +154,21 @@ public class CausalBroadcastShared {
 
     public static void stop(){ handlerThreadPool.shutdown(); }
 
-    public static void addReceivedTransaction(Message receivedTransaction) {
-        receivedTransactions.add(receivedTransaction);
-    }
-
-    public static List<Message> getReceivedTransactions() {
-        return receivedTransactions;
-    }
-
-    public static void addSendTransaction(Message sendTransaction) {
-        sendTransactions.add(sendTransaction);
-    }
-
-    public static List<Message> getSendTransactions() {
-        return sendTransactions;
-    }
+//    public static void addReceivedTransaction(Message receivedTransaction) {
+//        receivedTransactions.add(receivedTransaction);
+//    }
+//
+//    public static List<Message> getReceivedTransactions() {
+//        return receivedTransactions;
+//    }
+//
+//    public static void addSendTransaction(Message sendTransaction) {
+//        sendTransactions.add(sendTransaction);
+//    }
+//
+//    public static List<Message> getSendTransactions() {
+//        return sendTransactions;
+//    }
 
     public static Object getPendingMessagesLock() {
         return pendingMessagesLock;

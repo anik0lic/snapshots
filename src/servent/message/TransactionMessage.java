@@ -43,7 +43,6 @@ public class TransactionMessage extends CausalMessage {
 
 	@Override
 	public Message makeMeASender() {
-
 		ServentInfo myInfo = AppConfig.myServentInfo;
 		List<ServentInfo> newRouteList = new ArrayList<>(getRoute());
 		newRouteList.add(myInfo);
@@ -51,12 +50,10 @@ public class TransactionMessage extends CausalMessage {
 				getMessageText(), getMessageId(), getSenderVectorClock(), this.bitcakeManager);
 
 		return toReturn;
-
 	}
 
 	@Override
 	public Message changeReceiver(Integer newReceiverId) {
-
 		if (AppConfig.myServentInfo.getNeighbors().contains(newReceiverId)) {
 			ServentInfo newReceiverInfo = AppConfig.getInfoById(newReceiverId);
 			Message toReturn = new TransactionMessage(getOriginalSenderInfo(), newReceiverInfo,
@@ -67,7 +64,6 @@ public class TransactionMessage extends CausalMessage {
 			AppConfig.timestampedErrorPrint(newReceiverId + " is not our neighbor!");
 			return null;
 		}
-
 	}
 	
 	/**
@@ -81,7 +77,6 @@ public class TransactionMessage extends CausalMessage {
 			int amount = Integer.parseInt(getMessageText());
 
 			bitcakeManager.takeSomeBitcakes(amount);
-
 
 			if (bitcakeManager instanceof AbBitcakeManager) {
 				AbBitcakeManager abBitcakeManager = (AbBitcakeManager) bitcakeManager;

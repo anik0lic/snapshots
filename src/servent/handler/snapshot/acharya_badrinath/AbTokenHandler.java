@@ -26,7 +26,7 @@ public class AbTokenHandler implements MessageHandler {
 
         if (snapshotCollector.getBitcakeManager() instanceof AbBitcakeManager) {
             AbBitcakeManager abBitcakeManager = (AbBitcakeManager) snapshotCollector.getBitcakeManager();
-            abBitcakeManager.handleToken(clientMessage.getOriginalSenderInfo(), snapshotCollector);
+            abBitcakeManager.handleToken(clientMessage, snapshotCollector);
         }
     }
 }
