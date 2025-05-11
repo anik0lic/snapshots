@@ -1,582 +1,584 @@
-20:51:31 - Servent count: 5
-20:51:31 - Vector clock initialized: {0=0, 1=0, 2=0, 3=0, 4=0}
-20:51:31 - Starting servent [4|localhost|1500]
-20:51:31 - Pausing for 1000 ms
-20:51:32 - Got message [1|11|9|TRANSACTION|4]
-20:51:32 - Got message [1|12|9|TRANSACTION|4]
-20:51:32 - Got message [1|60|9|TRANSACTION|4]
-20:51:32 - Got message [1|51|4|TRANSACTION|4]
-20:51:32 - Got message [1|25|5|TRANSACTION|4]
-20:51:32 - Got message [1|77|3|TRANSACTION|4]
-20:51:32 - Got message [1|92|6|TRANSACTION|4]
-20:51:32 - Got message [1|76|9|TRANSACTION|4]
-20:51:32 - Got message [1|38|5|TRANSACTION|4]
-20:51:32 - Got message [1|16|4|TRANSACTION|4]
-20:51:32 - Got message [1|45|4|TRANSACTION|4]
-20:51:32 - Got message [1|55|2|TRANSACTION|4]
-20:51:32 - Got message [1|71|10|TRANSACTION|4]
-20:51:32 - Got message [1|61|3|TRANSACTION|4]
-20:51:32 - Got message [1|81|8|TRANSACTION|4]
-20:51:32 - Got message [1|57|9|TRANSACTION|4]
-20:51:32 - Got message [1|44|9|TRANSACTION|4]
-20:51:32 - Got message [1|18|9|TRANSACTION|4]
-20:51:32 - Got message [1|88|6|TRANSACTION|4]
-20:51:32 - Got message [1|29|1|TRANSACTION|4]
-20:51:32 - Got message [1|80|3|TRANSACTION|4]
-20:51:32 - Got message [1|83|6|TRANSACTION|4]
-20:51:32 - Got message [1|41|5|TRANSACTION|4]
-20:51:32 - Got message [1|64|5|TRANSACTION|4]
-20:51:32 - Pausing for 14000 ms
-20:51:32 - Starting ACHARYA_BADRINATH snapshot.
-20:51:32 - Got message [1|62|3|TRANSACTION|4]
-20:51:32 - Got message [1|70|6|TRANSACTION|4]
-20:51:32 - Got message [1|24|6|TRANSACTION|4]
-20:51:32 - Got message [1|21|2|TRANSACTION|4]
-20:51:32 - Got message [1|20|10|TRANSACTION|4]
-20:51:32 - Got message [1|52|3|TRANSACTION|4]
-20:51:32 - Got message [1|96|8|TRANSACTION|4]
-20:51:32 - Got message [1|33|5|TRANSACTION|4]
-20:51:32 - Got message [1|84|9|TRANSACTION|4]
-20:51:32 - Got message [1|14|3|TRANSACTION|4]
-20:51:32 - Got message [1|98|2|TRANSACTION|4]
-20:51:32 - Got message [1|73|4|TRANSACTION|4]
-20:51:32 - Got message [1|30|9|TRANSACTION|4]
-20:51:32 - Got message [1|27|2|TRANSACTION|4]
-20:51:32 - Got message [1|87|2|TRANSACTION|4]
-20:51:32 - Got message [1|10|2|TRANSACTION|4]
-20:51:32 - Got message [1|93|5|TRANSACTION|4]
-20:51:32 - Got message [1|74|2|TRANSACTION|4]
-20:51:32 - Got message [1|67|3|TRANSACTION|4]
-20:51:32 - Got message [1|32|8|TRANSACTION|4]
-20:51:32 - Got message [1|28|8|TRANSACTION|4]
-20:51:32 - Got message [1|39|2|TRANSACTION|4]
-20:51:33 - Got message [1|95|7|TRANSACTION|4]
-20:51:33 - Got message [1|47|4|TRANSACTION|4]
-20:51:33 - Got message [1|99|9|TRANSACTION|4]
-20:51:33 - Got message [1|58|7|TRANSACTION|4]
-20:51:33 - Sending message [4|1||AB_TOKEN|1]
-20:51:33 - Sending message [4|2||AB_TOKEN|3]
-20:51:33 - Sending message [4|0||AB_TOKEN|4]
-20:51:33 - Got message [4|0||AB_TOKEN|4]
-20:51:33 - Received AB_TOKEN from 4
-20:51:33 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=0}
-20:51:33 - Committing [4|3||AB_RESULT|4]
-20:51:33 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:33 - Forwarded AB_TOKEN to neighbor 1
-20:51:33 - Forwarded AB_TOKEN to neighbor 3
-20:51:34 - Got message [1|100||AB_RESULT|4]
-20:51:34 - Got message [3|0||AB_RESULT|4]
-20:51:34 - Sending message [4|3||AB_RESULT|4]
-20:51:35 - Sending message [4|4||AB_TOKEN|1]
-20:51:35 - Got message [4|3||AB_RESULT|4]
-20:51:35 - Sending message [4|5||AB_TOKEN|3]
-20:51:35 - Got message [0|150||AB_RESULT|4]
-20:51:35 - Got message [2|50||AB_RESULT|4]
-20:51:36 - Got message [0|153||AB_RESULT|4]
-20:51:36 - Got message [1|102||AB_RESULT|4]
-20:51:36 - Got message [2|51||AB_RESULT|4]
-20:51:36 - Got message [0|156||AB_RESULT|4]
-20:51:36 - Got message [3|2||AB_RESULT|4]
-20:51:36 - Got message [3|5||AB_TOKEN|4]
-20:51:36 - Received AB_TOKEN from 3
-20:51:36 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=1}
-20:51:36 - Committing [4|6||AB_RESULT|4]
-20:51:36 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:36 - Forwarded AB_TOKEN to neighbor 1
-20:51:36 - Got message [1|104||AB_RESULT|4]
-20:51:36 - Got message [3|4||AB_RESULT|4]
-20:51:37 - Got message [1|105||AB_TOKEN|4]
-20:51:37 - Received AB_TOKEN from 1
-20:51:37 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=2}
-20:51:37 - Committing [4|8||AB_RESULT|4]
-20:51:37 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:37 - Forwarded AB_TOKEN to neighbor 3
-20:51:37 - Got message [0|159||AB_RESULT|4]
-20:51:37 - Acharya-Badrinath Snapshot Results:
-20:51:37 - Servent 0: 851 bitcakes
-20:51:37 - Servent 1: 666 bitcakes
-20:51:37 - Servent 2: 915 bitcakes
-20:51:37 - Servent 3: 1294 bitcakes
-20:51:37 - Servent 4: 1274 bitcakes
-20:51:37 - Total bitcakes in system (AB): 5000
-20:51:37 - Got message [2|52||AB_RESULT|4]
-20:51:37 - Got message [3|6||AB_RESULT|4]
-20:51:37 - Got message [3|7||AB_TOKEN|4]
-20:51:37 - Received AB_TOKEN from 3
-20:51:37 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=3}
-20:51:37 - Committing [4|10||AB_RESULT|4]
-20:51:37 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:37 - Forwarded AB_TOKEN to neighbor 1
-20:51:37 - Sending message [4|7||AB_TOKEN|1]
-20:51:37 - Sending message [4|6||AB_RESULT|4]
-20:51:37 - Got message [4|6||AB_RESULT|4]
-20:51:37 - Sending message [4|9||AB_TOKEN|3]
-20:51:38 - Got message [2|53||AB_RESULT|4]
-20:51:38 - Got message [1|106||AB_RESULT|4]
-20:51:38 - Sending message [4|11||AB_TOKEN|1]
-20:51:38 - Sending message [4|8||AB_RESULT|4]
-20:51:38 - Got message [3|8||AB_RESULT|4]
-20:51:38 - Got message [4|8||AB_RESULT|4]
-20:51:38 - Got message [1|107||AB_TOKEN|4]
-20:51:38 - Received AB_TOKEN from 1
-20:51:38 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=4}
-20:51:38 - Committing [4|12||AB_RESULT|4]
-20:51:38 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:38 - Forwarded AB_TOKEN to neighbor 3
-20:51:38 - Sending message [4|10||AB_RESULT|4]
-20:51:39 - Got message [1|108||AB_RESULT|4]
-20:51:39 - Got message [4|10||AB_RESULT|4]
-20:51:39 - Got message [1|110||AB_RESULT|4]
-20:51:39 - Sending message [4|13||AB_TOKEN|3]
-20:51:39 - Got message [0|162||AB_RESULT|4]
-20:51:39 - Got message [3|10||AB_RESULT|4]
-20:51:39 - Sending message [4|12||AB_RESULT|4]
-20:51:40 - Got message [0|165||AB_RESULT|4]
-20:51:40 - Got message [4|12||AB_RESULT|4]
-20:51:40 - Got message [1|112||AB_RESULT|4]
-20:51:40 - Got message [3|11||AB_TOKEN|4]
-20:51:40 - Received AB_TOKEN from 3
-20:51:40 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=5}
-20:51:40 - Committing [4|14||AB_RESULT|4]
-20:51:40 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:40 - Forwarded AB_TOKEN to neighbor 1
-20:51:40 - Sending message [4|15||AB_TOKEN|1]
-20:51:40 - Got message [0|168||AB_RESULT|4]
-20:51:40 - Got message [1|113||AB_TOKEN|4]
-20:51:40 - Received AB_TOKEN from 1
-20:51:40 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=6}
-20:51:40 - Committing [4|16||AB_RESULT|4]
-20:51:40 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:40 - Forwarded AB_TOKEN to neighbor 3
-20:51:40 - Got message [2|55||AB_RESULT|4]
-20:51:40 - Got message [3|14||AB_RESULT|4]
-20:51:40 - Got message [3|15||AB_TOKEN|4]
-20:51:40 - Received AB_TOKEN from 3
-20:51:40 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=7}
-20:51:40 - Committing [4|18||AB_RESULT|4]
-20:51:40 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:40 - Forwarded AB_TOKEN to neighbor 1
-20:51:40 - Got message [3|12||AB_RESULT|4]
-20:51:41 - Got message [2|54||AB_RESULT|4]
-20:51:41 - Got message [2|56||AB_RESULT|4]
-20:51:41 - Sending message [4|14||AB_RESULT|4]
-20:51:41 - Got message [4|14||AB_RESULT|4]
-20:51:41 - Got message [1|114||AB_RESULT|4]
-20:51:41 - Sending message [4|16||AB_RESULT|4]
-20:51:41 - Got message [0|171||AB_RESULT|4]
-20:51:41 - Got message [4|16||AB_RESULT|4]
-20:51:41 - Sending message [4|18||AB_RESULT|4]
-20:51:41 - Sending message [4|19||AB_TOKEN|1]
-20:51:41 - Got message [4|18||AB_RESULT|4]
-20:51:41 - Sending message [4|17||AB_TOKEN|3]
-20:51:42 - Got message [1|118||AB_RESULT|4]
-20:51:42 - Got message [3|16||AB_RESULT|4]
-20:51:43 - Got message [0|174||AB_RESULT|4]
-20:51:43 - Got message [1|117||AB_TOKEN|4]
-20:51:43 - Received AB_TOKEN from 1
-20:51:43 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=8}
-20:51:43 - Committing [4|20||AB_RESULT|4]
-20:51:43 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:43 - Forwarded AB_TOKEN to neighbor 3
-20:51:43 - Got message [2|57||AB_RESULT|4]
-20:51:43 - Got message [1|116||AB_RESULT|4]
-20:51:43 - Sending message [4|21||AB_TOKEN|3]
-20:51:43 - Got message [0|177||AB_RESULT|4]
-20:51:43 - Got message [3|19||AB_TOKEN|4]
-20:51:43 - Received AB_TOKEN from 3
-20:51:43 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=9}
-20:51:43 - Committing [4|22||AB_RESULT|4]
-20:51:43 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:43 - Forwarded AB_TOKEN to neighbor 1
-20:51:44 - Got message [0|180||AB_RESULT|4]
-20:51:44 - Got message [2|58||AB_RESULT|4]
-20:51:44 - Got message [3|20||AB_RESULT|4]
-20:51:44 - Got message [1|120||AB_RESULT|4]
-20:51:44 - Got message [1|121||AB_TOKEN|4]
-20:51:44 - Received AB_TOKEN from 1
-20:51:44 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=10}
-20:51:44 - Committing [4|24||AB_RESULT|4]
-20:51:44 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:44 - Forwarded AB_TOKEN to neighbor 3
-20:51:44 - Got message [2|59||AB_RESULT|4]
-20:51:44 - Got message [3|21||AB_TOKEN|4]
-20:51:44 - Received AB_TOKEN from 3
-20:51:44 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=11}
-20:51:44 - Committing [4|26||AB_RESULT|4]
-20:51:44 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:44 - Forwarded AB_TOKEN to neighbor 1
-20:51:44 - Sending message [4|20||AB_RESULT|4]
-20:51:44 - Got message [3|18||AB_RESULT|4]
-20:51:44 - Got message [4|20||AB_RESULT|4]
-20:51:44 - Sending message [4|22||AB_RESULT|4]
-20:51:45 - Got message [3|22||AB_RESULT|4]
-20:51:45 - Got message [4|22||AB_RESULT|4]
-20:51:45 - Sending message [4|23||AB_TOKEN|1]
-20:51:45 - Sending message [4|24||AB_RESULT|4]
-20:51:45 - Got message [4|24||AB_RESULT|4]
-20:51:45 - Sending message [4|26||AB_RESULT|4]
-20:51:45 - Got message [4|26||AB_RESULT|4]
-20:51:45 - Got message [2|60||AB_RESULT|4]
-20:51:45 - Sending message [4|25||AB_TOKEN|3]
-20:51:46 - Sending message [4|27||AB_TOKEN|1]
-20:51:46 - Pausing for 15000 ms
-20:51:46 - Starting ACHARYA_BADRINATH snapshot.
-20:51:46 - Got message [1|122||AB_RESULT|4]
-20:51:46 - Got message [1|125||AB_TOKEN|4]
-20:51:46 - Received AB_TOKEN from 1
-20:51:46 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=12}
-20:51:46 - Committing [4|31||AB_RESULT|4]
-20:51:46 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:46 - Forwarded AB_TOKEN to neighbor 3
-20:51:46 - Got message [1|126||AB_RESULT|4]
-20:51:46 - Got message [0|183||AB_RESULT|4]
-20:51:46 - Got message [3|24||AB_RESULT|4]
-20:51:47 - Got message [2|61||AB_RESULT|4]
-20:51:47 - Got message [1|124||AB_RESULT|4]
-20:51:47 - Sending message [4|29||AB_TOKEN|1]
-20:51:47 - Sending message [4|30||AB_TOKEN|3]
-20:51:47 - Sending message [4|32||AB_TOKEN|3]
-20:51:47 - Sending message [4|28||AB_TOKEN|4]
-20:51:47 - Got message [0|186||AB_RESULT|4]
-20:51:47 - Got message [0|189||AB_RESULT|4]
-20:51:47 - Got message [4|28||AB_TOKEN|4]
-20:51:47 - Received AB_TOKEN from 4
-20:51:47 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=13}
-20:51:47 - Committing [4|33||AB_RESULT|4]
-20:51:47 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:47 - Forwarded AB_TOKEN to neighbor 1
-20:51:47 - Forwarded AB_TOKEN to neighbor 3
-20:51:48 - Sending message [4|31||AB_RESULT|4]
-20:51:48 - Got message [4|31||AB_RESULT|4]
-20:51:48 - Got message [3|27||AB_TOKEN|4]
-20:51:48 - Received AB_TOKEN from 3
-20:51:48 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=14}
-20:51:48 - Committing [4|36||AB_RESULT|4]
-20:51:48 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:48 - Forwarded AB_TOKEN to neighbor 1
-20:51:48 - Got message [1|128||AB_RESULT|4]
-20:51:48 - Got message [2|62||AB_RESULT|4]
-20:51:48 - Sending message [4|35||AB_TOKEN|3]
-20:51:48 - Sending message [4|33||AB_RESULT|4]
-20:51:48 - Got message [0|192||AB_RESULT|4]
-20:51:48 - Got message [3|28||AB_RESULT|4]
-20:51:48 - Got message [3|26||AB_RESULT|4]
-20:51:48 - Sending message [4|34||AB_TOKEN|1]
-20:51:48 - Got message [2|63||AB_RESULT|4]
-20:51:48 - Got message [1|130||AB_RESULT|4]
-20:51:48 - Got message [4|33||AB_RESULT|4]
-20:51:48 - Got message [3|32||AB_RESULT|4]
-20:51:49 - Got message [3|30||AB_RESULT|4]
-20:51:49 - Sending message [4|36||AB_RESULT|4]
-20:51:49 - Got message [4|36||AB_RESULT|4]
-20:51:49 - Got message [1|131||AB_TOKEN|4]
-20:51:49 - Received AB_TOKEN from 1
-20:51:49 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=15}
-20:51:49 - Committing [4|38||AB_RESULT|4]
-20:51:49 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:49 - Forwarded AB_TOKEN to neighbor 3
-20:51:49 - Got message [3|33||AB_TOKEN|4]
-20:51:49 - Received AB_TOKEN from 3
-20:51:49 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=16}
-20:51:49 - Committing [4|40||AB_RESULT|4]
-20:51:49 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:49 - Forwarded AB_TOKEN to neighbor 1
-20:51:49 - Acharya-Badrinath Snapshot Results:
-20:51:49 - Servent 0: 851 bitcakes
-20:51:49 - Servent 1: 666 bitcakes
-20:51:49 - Servent 2: 915 bitcakes
-20:51:49 - Servent 3: 1294 bitcakes
-20:51:49 - Servent 4: 1274 bitcakes
-20:51:49 - Total bitcakes in system (AB): 5000
-20:51:49 - Sending message [4|37||AB_TOKEN|1]
-20:51:49 - Got message [1|132||AB_RESULT|4]
-20:51:49 - Got message [0|198||AB_RESULT|4]
-20:51:50 - Sending message [4|39||AB_TOKEN|3]
-20:51:50 - Got message [0|195||AB_RESULT|4]
-20:51:50 - Got message [0|201||AB_RESULT|4]
-20:51:50 - Got message [3|34||AB_RESULT|4]
-20:51:50 - Got message [2|65||AB_RESULT|4]
-20:51:50 - Sending message [4|38||AB_RESULT|4]
-20:51:50 - Sending message [4|41||AB_TOKEN|1]
-20:51:50 - Got message [0|204||AB_RESULT|4]
-20:51:50 - Got message [2|64||AB_RESULT|4]
-20:51:50 - Got message [1|137||AB_TOKEN|4]
-20:51:50 - Received AB_TOKEN from 1
-20:51:50 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=17}
-20:51:50 - Committing [4|42||AB_RESULT|4]
-20:51:50 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:50 - Forwarded AB_TOKEN to neighbor 3
-20:51:50 - Got message [4|38||AB_RESULT|4]
-20:51:50 - Got message [1|134||AB_RESULT|4]
-20:51:50 - Sending message [4|40||AB_RESULT|4]
-20:51:51 - Got message [0|207||AB_RESULT|4]
-20:51:51 - Got message [1|136||AB_RESULT|4]
-20:51:51 - Got message [3|36||AB_RESULT|4]
-20:51:51 - Got message [4|40||AB_RESULT|4]
-20:51:51 - Got message [3|37||AB_TOKEN|4]
-20:51:51 - Received AB_TOKEN from 3
-20:51:51 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=18}
-20:51:51 - Committing [4|44||AB_RESULT|4]
-20:51:51 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:51 - Forwarded AB_TOKEN to neighbor 1
-20:51:51 - Got message [2|66||AB_RESULT|4]
-20:51:51 - Got message [1|139||AB_TOKEN|4]
-20:51:51 - Received AB_TOKEN from 1
-20:51:51 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=19}
-20:51:51 - Committing [4|46||AB_RESULT|4]
-20:51:51 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:51 - Forwarded AB_TOKEN to neighbor 3
-20:51:51 - Sending message [4|42||AB_RESULT|4]
-20:51:51 - Got message [1|142||AB_RESULT|4]
-20:51:51 - Got message [3|38||AB_RESULT|4]
-20:51:51 - Got message [2|67||AB_RESULT|4]
-20:51:51 - Got message [1|138||AB_RESULT|4]
-20:51:51 - Got message [0|210||AB_RESULT|4]
-20:51:51 - Got message [4|42||AB_RESULT|4]
-20:51:51 - Sending message [4|44||AB_RESULT|4]
-20:51:51 - Got message [1|140||AB_RESULT|4]
-20:51:52 - Got message [3|40||AB_RESULT|4]
-20:51:52 - Sending message [4|43||AB_TOKEN|3]
-20:51:52 - Sending message [4|45||AB_TOKEN|1]
-20:51:52 - Sending message [4|46||AB_RESULT|4]
-20:51:52 - Got message [0|213||AB_RESULT|4]
-20:51:52 - Got message [4|44||AB_RESULT|4]
-20:51:52 - Sending message [4|47||AB_TOKEN|3]
-20:51:52 - Got message [2|68||AB_RESULT|4]
-20:51:52 - Got message [3|41||AB_TOKEN|4]
-20:51:52 - Received AB_TOKEN from 3
-20:51:52 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=20}
-20:51:52 - Committing [4|48||AB_RESULT|4]
-20:51:52 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:52 - Forwarded AB_TOKEN to neighbor 1
-20:51:52 - Got message [1|143||AB_TOKEN|4]
-20:51:52 - Received AB_TOKEN from 1
-20:51:52 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=21}
-20:51:52 - Committing [4|50||AB_RESULT|4]
-20:51:52 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:52 - Forwarded AB_TOKEN to neighbor 3
-20:51:52 - Got message [1|145||AB_TOKEN|4]
-20:51:52 - Received AB_TOKEN from 1
-20:51:52 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=22}
-20:51:52 - Committing [4|52||AB_RESULT|4]
-20:51:52 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:52 - Forwarded AB_TOKEN to neighbor 3
-20:51:52 - Got message [2|70||AB_RESULT|4]
-20:51:52 - Got message [4|46||AB_RESULT|4]
-20:51:52 - Got message [2|69||AB_RESULT|4]
-20:51:52 - Got message [2|71||AB_RESULT|4]
-20:51:52 - Sending message [4|53||AB_TOKEN|3]
-20:51:52 - Sending message [4|52||AB_RESULT|4]
-20:51:53 - Sending message [4|51||AB_TOKEN|3]
-20:51:53 - Sending message [4|48||AB_RESULT|4]
-20:51:53 - Got message [0|216||AB_RESULT|4]
-20:51:53 - Got message [1|144||AB_RESULT|4]
-20:51:53 - Got message [3|45||AB_TOKEN|4]
-20:51:53 - Received AB_TOKEN from 3
-20:51:53 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=23}
-20:51:53 - Committing [4|54||AB_RESULT|4]
-20:51:53 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:53 - Forwarded AB_TOKEN to neighbor 1
-20:51:53 - Got message [4|52||AB_RESULT|4]
-20:51:53 - Got message [4|48||AB_RESULT|4]
-20:51:53 - Got message [3|42||AB_RESULT|4]
-20:51:53 - Sending message [4|50||AB_RESULT|4]
-20:51:53 - Got message [1|146||AB_RESULT|4]
-20:51:53 - Got message [2|72||AB_RESULT|4]
-20:51:53 - Got message [3|44||AB_RESULT|4]
-20:51:53 - Got message [3|47||AB_TOKEN|4]
-20:51:53 - Received AB_TOKEN from 3
-20:51:53 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=24}
-20:51:53 - Committing [4|56||AB_RESULT|4]
-20:51:53 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:53 - Forwarded AB_TOKEN to neighbor 1
-20:51:53 - Got message [4|50||AB_RESULT|4]
-20:51:53 - Got message [3|46||AB_RESULT|4]
-20:51:53 - Got message [3|48||AB_RESULT|4]
-20:51:53 - Sending message [4|49||AB_TOKEN|1]
-20:51:53 - Got message [3|50||AB_RESULT|4]
-20:51:54 - Sending message [4|55||AB_TOKEN|1]
-20:51:54 - Sending message [4|54||AB_RESULT|4]
-20:51:54 - Sending message [4|56||AB_RESULT|4]
-20:51:54 - Got message [0|219||AB_RESULT|4]
-20:51:54 - Got message [4|54||AB_RESULT|4]
-20:51:54 - Got message [0|225||AB_RESULT|4]
-20:51:54 - Got message [0|222||AB_RESULT|4]
-20:51:54 - Sending message [4|57||AB_TOKEN|1]
-20:51:54 - Got message [4|56||AB_RESULT|4]
-20:51:54 - Got message [3|52||AB_RESULT|4]
-20:51:54 - Got message [0|228||AB_RESULT|4]
-20:51:55 - Got message [0|231||AB_RESULT|4]
-20:51:55 - Got message [2|73||AB_RESULT|4]
-20:51:55 - Got message [3|54||AB_RESULT|4]
-20:51:55 - Got message [1|148||AB_RESULT|4]
-20:51:55 - Got message [1|152||AB_RESULT|4]
-20:51:55 - Got message [1|153||AB_TOKEN|4]
-20:51:55 - Received AB_TOKEN from 1
-20:51:55 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=25}
-20:51:55 - Committing [4|58||AB_RESULT|4]
-20:51:55 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:55 - Forwarded AB_TOKEN to neighbor 3
-20:51:55 - Got message [2|75||AB_RESULT|4]
-20:51:55 - Got message [1|150||AB_RESULT|4]
-20:51:55 - Got message [1|159||AB_TOKEN|4]
-20:51:55 - Received AB_TOKEN from 1
-20:51:55 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=26}
-20:51:55 - Committing [4|60||AB_RESULT|4]
-20:51:55 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:55 - Forwarded AB_TOKEN to neighbor 3
-20:51:55 - Got message [2|77||AB_RESULT|4]
-20:51:56 - Got message [2|76||AB_RESULT|4]
-20:51:56 - Got message [3|55||AB_TOKEN|4]
-20:51:56 - Received AB_TOKEN from 3
-20:51:56 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=27}
-20:51:56 - Committing [4|62||AB_RESULT|4]
-20:51:56 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:56 - Forwarded AB_TOKEN to neighbor 1
-20:51:56 - Got message [1|156||AB_RESULT|4]
-20:51:56 - Got message [1|161||AB_TOKEN|4]
-20:51:56 - Received AB_TOKEN from 1
-20:51:56 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=28}
-20:51:56 - Committing [4|64||AB_RESULT|4]
-20:51:56 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:56 - Forwarded AB_TOKEN to neighbor 3
-20:51:56 - Got message [1|158||AB_RESULT|4]
-20:51:56 - Got message [2|74||AB_RESULT|4]
-20:51:56 - Sending message [4|63||AB_TOKEN|1]
-20:51:56 - Got message [1|154||AB_RESULT|4]
-20:51:56 - Sending message [4|58||AB_RESULT|4]
-20:51:56 - Got message [0|237||AB_RESULT|4]
-20:51:56 - Sending message [4|62||AB_RESULT|4]
-20:51:56 - Got message [0|234||AB_RESULT|4]
-20:51:56 - Got message [1|157||AB_TOKEN|4]
-20:51:56 - Received AB_TOKEN from 1
-20:51:56 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=29}
-20:51:56 - Committing [4|66||AB_RESULT|4]
-20:51:56 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:56 - Forwarded AB_TOKEN to neighbor 3
-20:51:56 - Got message [1|160||AB_RESULT|4]
-20:51:56 - Got message [4|58||AB_RESULT|4]
-20:51:56 - Sending message [4|65||AB_TOKEN|3]
-20:51:56 - Sending message [4|61||AB_TOKEN|3]
-20:51:56 - Got message [2|78||AB_RESULT|4]
-20:51:57 - Got message [4|62||AB_RESULT|4]
-20:51:57 - Sending message [4|64||AB_RESULT|4]
-20:51:57 - Sending message [4|59||AB_TOKEN|3]
-20:51:57 - Got message [3|56||AB_RESULT|4]
-20:51:57 - Got message [3|58||AB_RESULT|4]
-20:51:57 - Sending message [4|60||AB_RESULT|4]
-20:51:57 - Got message [4|64||AB_RESULT|4]
-20:51:57 - Got message [3|59||AB_TOKEN|4]
-20:51:57 - Received AB_TOKEN from 3
-20:51:57 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=30}
-20:51:57 - Committing [4|68||AB_RESULT|4]
-20:51:57 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:57 - Forwarded AB_TOKEN to neighbor 1
-20:51:57 - Got message [4|60||AB_RESULT|4]
-20:51:57 - Got message [1|162||AB_RESULT|4]
-20:51:57 - Got message [3|57||AB_TOKEN|4]
-20:51:57 - Received AB_TOKEN from 3
-20:51:57 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=31}
-20:51:57 - Committing [4|70||AB_RESULT|4]
-20:51:57 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:57 - Forwarded AB_TOKEN to neighbor 1
-20:51:57 - Got message [2|79||AB_RESULT|4]
-20:51:57 - Got message [0|240||AB_RESULT|4]
-20:51:57 - Got message [3|60||AB_RESULT|4]
-20:51:57 - Sending message [4|68||AB_RESULT|4]
-20:51:57 - Got message [3|64||AB_RESULT|4]
-20:51:57 - Got message [3|61||AB_TOKEN|4]
-20:51:57 - Received AB_TOKEN from 3
-20:51:57 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=32}
-20:51:57 - Committing [4|72||AB_RESULT|4]
-20:51:57 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:51:57 - Forwarded AB_TOKEN to neighbor 1
-20:51:57 - Got message [4|68||AB_RESULT|4]
-20:51:57 - Sending message [4|71||AB_TOKEN|1]
-20:51:57 - Got message [3|62||AB_RESULT|4]
-20:51:57 - Sending message [4|70||AB_RESULT|4]
-20:51:58 - Sending message [4|67||AB_TOKEN|3]
-20:51:58 - Sending message [4|69||AB_TOKEN|1]
-20:51:58 - Got message [4|70||AB_RESULT|4]
-20:51:58 - Sending message [4|66||AB_RESULT|4]
-20:51:58 - Sending message [4|73||AB_TOKEN|1]
-20:51:58 - Got message [0|243||AB_RESULT|4]
-20:51:58 - Got message [4|66||AB_RESULT|4]
-20:51:58 - Got message [2|80||AB_RESULT|4]
-20:51:58 - Got message [3|66||AB_RESULT|4]
-20:51:58 - Got message [3|68||AB_RESULT|4]
-20:51:59 - Sending message [4|72||AB_RESULT|4]
-20:51:59 - Got message [0|246||AB_RESULT|4]
-20:51:59 - Got message [1|164||AB_RESULT|4]
-20:51:59 - Got message [1|166||AB_RESULT|4]
-20:51:59 - Got message [3|70||AB_RESULT|4]
-20:51:59 - Got message [0|252||AB_RESULT|4]
-20:51:59 - Got message [0|249||AB_RESULT|4]
-20:51:59 - Got message [4|72||AB_RESULT|4]
-20:51:59 - Got message [1|170||AB_RESULT|4]
-20:52:00 - Got message [2|81||AB_RESULT|4]
-20:52:00 - Got message [0|255||AB_RESULT|4]
-20:52:00 - Got message [1|168||AB_RESULT|4]
-20:52:00 - Got message [2|82||AB_RESULT|4]
-20:52:00 - Got message [2|83||AB_RESULT|4]
-20:52:00 - Got message [1|173||AB_TOKEN|4]
-20:52:00 - Received AB_TOKEN from 1
-20:52:00 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=33}
-20:52:00 - Committing [4|74||AB_RESULT|4]
-20:52:00 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:52:00 - Forwarded AB_TOKEN to neighbor 3
-20:52:00 - Got message [1|172||AB_RESULT|4]
-20:52:00 - Got message [1|169||AB_TOKEN|4]
-20:52:00 - Received AB_TOKEN from 1
-20:52:00 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=34}
-20:52:00 - Committing [4|76||AB_RESULT|4]
-20:52:00 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:52:00 - Forwarded AB_TOKEN to neighbor 3
-20:52:00 - Got message [3|71||AB_TOKEN|4]
-20:52:00 - Received AB_TOKEN from 3
-20:52:00 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=35}
-20:52:00 - Committing [4|78||AB_RESULT|4]
-20:52:00 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:52:00 - Forwarded AB_TOKEN to neighbor 1
-20:52:00 - Got message [0|261||AB_RESULT|4]
-20:52:00 - Got message [3|72||AB_RESULT|4]
-20:52:01 - Got message [0|258||AB_RESULT|4]
-20:52:01 - Got message [1|175||AB_TOKEN|4]
-20:52:01 - Received AB_TOKEN from 1
-20:52:01 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=36}
-20:52:01 - Committing [4|80||AB_RESULT|4]
-20:52:01 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:52:01 - Forwarded AB_TOKEN to neighbor 3
-20:52:01 - Got message [2|84||AB_RESULT|4]
-20:52:01 - Got message [2|85||AB_RESULT|4]
-20:52:01 - Got message [3|73||AB_TOKEN|4]
-20:52:01 - Received AB_TOKEN from 3
-20:52:01 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=37}
-20:52:01 - Committing [4|82||AB_RESULT|4]
-20:52:01 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:52:01 - Forwarded AB_TOKEN to neighbor 1
-20:52:01 - Got message [1|174||AB_RESULT|4]
-20:52:01 - Got message [3|74||AB_RESULT|4]
-20:52:01 - Sending message [4|76||AB_RESULT|4]
-20:52:01 - Got message [0|264||AB_RESULT|4]
-20:52:01 - Got message [1|177||AB_TOKEN|4]
-20:52:01 - Received AB_TOKEN from 1
-20:52:01 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=38}
-20:52:01 - Committing [4|84||AB_RESULT|4]
-20:52:01 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:52:01 - Forwarded AB_TOKEN to neighbor 3
-20:52:01 - Sending message [4|77||AB_TOKEN|3]
-20:52:01 - Got message [1|176||AB_RESULT|4]
-20:52:01 - Got message [3|75||AB_TOKEN|4]
-20:52:01 - Received AB_TOKEN from 3
-20:52:01 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=39}
-20:52:01 - Committing [4|86||AB_RESULT|4]
-20:52:01 - Sent AB_RESULT to [4|localhost|1500] with amount: 1274
-20:52:01 - Forwarded AB_TOKEN to neighbor 1
-20:52:01 - Got message [4|76||AB_RESULT|4]
-20:52:01 - My info: [4|localhost|1500]
-20:52:01 - Neighbors:
-20:52:01 - 1 3 
-20:52:01 - Stopping...
-20:52:01 - Sending message [4|75||AB_TOKEN|3]
-20:52:01 - Got message [2|86||AB_RESULT|4]
+20:56:59 - Servent count: 5
+20:56:59 - Vector clock initialized: {0=0, 1=0, 2=0, 3=0, 4=0}
+20:56:59 - Starting servent [4|localhost|1500]
+20:56:59 - Pausing for 1000 ms
+20:57:00 - Got message [1|87|1|TRANSACTION|4]
+20:57:00 - Got message [1|22|4|TRANSACTION|4]
+20:57:00 - Got message [1|39|2|TRANSACTION|4]
+20:57:00 - Got message [1|55|2|TRANSACTION|4]
+20:57:00 - Got message [1|45|1|TRANSACTION|4]
+20:57:00 - Got message [1|46|7|TRANSACTION|4]
+20:57:00 - Got message [1|15|5|TRANSACTION|4]
+20:57:00 - Got message [1|67|8|TRANSACTION|4]
+20:57:00 - Got message [1|29|2|TRANSACTION|4]
+20:57:00 - Got message [1|27|1|TRANSACTION|4]
+20:57:00 - Got message [1|77|2|TRANSACTION|4]
+20:57:00 - Got message [1|84|1|TRANSACTION|4]
+20:57:00 - Got message [1|64|10|TRANSACTION|4]
+20:57:00 - Got message [1|57|8|TRANSACTION|4]
+20:57:00 - Got message [1|72|10|TRANSACTION|4]
+20:57:00 - Got message [1|83|1|TRANSACTION|4]
+20:57:00 - Got message [1|89|9|TRANSACTION|4]
+20:57:00 - Got message [1|91|7|TRANSACTION|4]
+20:57:00 - Pausing for 14000 ms
+20:57:00 - Got message [1|74|3|TRANSACTION|4]
+20:57:00 - Got message [1|50|2|TRANSACTION|4]
+20:57:00 - Got message [1|96|8|TRANSACTION|4]
+20:57:00 - Got message [1|82|1|TRANSACTION|4]
+20:57:01 - Got message [1|60|9|TRANSACTION|4]
+20:57:01 - Got message [1|95|8|TRANSACTION|4]
+20:57:01 - Got message [1|34|6|TRANSACTION|4]
+20:57:01 - Got message [1|37|9|TRANSACTION|4]
+20:57:01 - Got message [1|13|9|TRANSACTION|4]
+20:57:01 - Got message [1|11|4|TRANSACTION|4]
+20:57:01 - Got message [1|44|4|TRANSACTION|4]
+20:57:01 - Got message [1|52|1|TRANSACTION|4]
+20:57:01 - Got message [1|68|10|TRANSACTION|4]
+20:57:01 - Got message [1|35|8|TRANSACTION|4]
+20:57:01 - Got message [1|99|7|TRANSACTION|4]
+20:57:01 - Got message [1|41|7|TRANSACTION|4]
+20:57:01 - Got message [1|62|8|TRANSACTION|4]
+20:57:01 - Starting ACHARYA_BADRINATH snapshot.
+20:57:02 - Sending message [4|2||AB_TOKEN|3]
+20:57:03 - Sending message [4|0||AB_TOKEN|4]
+20:57:03 - Got message [4|0||AB_TOKEN|4]
+20:57:03 - Received AB_TOKEN from 4
+20:57:03 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=0}
+20:57:03 - Committing [4|3||AB_RESULT|4]
+20:57:03 - Sent AB_RESULT to [4|localhost|1500] with amount: 1185
+20:57:03 - Forwarded AB_TOKEN to neighbor 1
+20:57:03 - Forwarded AB_TOKEN to neighbor 3
+20:57:03 - Sending message [4|1||AB_TOKEN|1]
+20:57:03 - Got message [3|0||AB_RESULT|4]
+20:57:03 - Sending message [4|4||AB_TOKEN|1]
+20:57:03 - Sending message [4|3||AB_RESULT|4]
+20:57:03 - Sending message [4|5||AB_TOKEN|3]
+20:57:03 - Got message [4|3||AB_RESULT|4]
+20:57:04 - Got message [1|102||AB_RESULT|4]
+20:57:04 - Got message [1|100||AB_RESULT|4]
+20:57:04 - Got message [0|150||AB_RESULT|4]
+20:57:05 - Got message [3|2||AB_RESULT|4]
+20:57:05 - Got message [0|153||AB_RESULT|4]
+20:57:05 - Got message [1|105||AB_TOKEN|4]
+20:57:05 - Received AB_TOKEN from 1
+20:57:05 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=1}
+20:57:05 - Committing [4|6||AB_RESULT|4]
+20:57:05 - Got message [1|53|8|TRANSACTION|4]
+20:57:05 - Sent AB_RESULT to [4|localhost|1500] with amount: 1185
+20:57:05 - Forwarded AB_TOKEN to neighbor 3
+20:57:05 - Got message [1|104||AB_RESULT|4]
+20:57:05 - Got message [0|159||AB_RESULT|4]
+20:57:06 - Got message [0|156||AB_RESULT|4]
+20:57:06 - Got message [1|28|8|TRANSACTION|4]
+20:57:06 - Got message [1|10|3|TRANSACTION|4]
+20:57:06 - Got message [1|92|7|TRANSACTION|4]
+20:57:06 - Got message [1|17|3|TRANSACTION|4]
+20:57:06 - Got message [1|20|6|TRANSACTION|4]
+20:57:06 - Got message [1|80|9|TRANSACTION|4]
+20:57:06 - Got message [1|69|10|TRANSACTION|4]
+20:57:06 - Got message [1|98|1|TRANSACTION|4]
+20:57:06 - Got message [2|50||AB_RESULT|4]
+20:57:06 - Got message [1|21|7|TRANSACTION|4]
+20:57:06 - Got message [3|4||AB_RESULT|4]
+20:57:06 - Got message [1|78|7|TRANSACTION|4]
+20:57:06 - Got message [1|18|8|TRANSACTION|4]
+20:57:06 - Got message [1|107||AB_TOKEN|4]
+20:57:06 - Received AB_TOKEN from 1
+20:57:06 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=2}
+20:57:06 - Committing [4|8||AB_RESULT|4]
+20:57:06 - Sent AB_RESULT to [4|localhost|1500] with amount: 1262
+20:57:06 - Forwarded AB_TOKEN to neighbor 3
+20:57:06 - Got message [1|59|2|TRANSACTION|4]
+20:57:06 - Got message [3|7||AB_TOKEN|4]
+20:57:06 - Received AB_TOKEN from 3
+20:57:06 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=3}
+20:57:06 - Committing [4|10||AB_RESULT|4]
+20:57:06 - Sent AB_RESULT to [4|localhost|1500] with amount: 1264
+20:57:06 - Forwarded AB_TOKEN to neighbor 1
+20:57:06 - Sending message [4|6||AB_RESULT|4]
+20:57:06 - Sending message [4|7||AB_TOKEN|3]
+20:57:06 - Got message [4|6||AB_RESULT|4]
+20:57:06 - Got message [1|43|5|TRANSACTION|4]
+20:57:06 - Got message [1|12|9|TRANSACTION|4]
+20:57:06 - Got message [3|5||AB_TOKEN|4]
+20:57:06 - Received AB_TOKEN from 3
+20:57:06 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=4}
+20:57:06 - Committing [4|12||AB_RESULT|4]
+20:57:06 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:06 - Forwarded AB_TOKEN to neighbor 1
+20:57:06 - Got message [2|51||AB_RESULT|4]
+20:57:06 - Got message [1|106||AB_RESULT|4]
+20:57:06 - Got message [2|53||AB_RESULT|4]
+20:57:06 - Sending message [4|9||AB_TOKEN|3]
+20:57:06 - Got message [3|6||AB_RESULT|4]
+20:57:06 - Got message [2|52||AB_RESULT|4]
+20:57:06 - Sending message [4|13||AB_TOKEN|1]
+20:57:07 - Got message [3|8||AB_RESULT|4]
+20:57:07 - Sending message [4|12||AB_RESULT|4]
+20:57:07 - Got message [4|12||AB_RESULT|4]
+20:57:07 - Sending message [4|11||AB_TOKEN|1]
+20:57:07 - Got message [3|10||AB_RESULT|4]
+20:57:07 - Sending message [4|10||AB_RESULT|4]
+20:57:07 - Sending message [4|8||AB_RESULT|4]
+20:57:07 - Got message [1|108||AB_RESULT|4]
+20:57:07 - Got message [4|10||AB_RESULT|4]
+20:57:07 - Got message [4|8||AB_RESULT|4]
+20:57:07 - Acharya-Badrinath Snapshot Results:
+20:57:07 - Servent 0: 679 bitcakes
+20:57:07 - Servent 1: 712 bitcakes
+20:57:07 - Servent 2: 1063 bitcakes
+20:57:07 - Servent 3: 1257 bitcakes
+20:57:07 - Servent 4: 1262 bitcakes
+20:57:07 - Unreceived amounts between 0 and 1: 6
+20:57:07 - Unreceived amounts between 0 and 3: 3
+20:57:07 - Unreceived amounts between 1 and 0: 10
+20:57:07 - Unreceived amounts between 1 and 4: 3
+20:57:07 - Total bitcakes in system (AB): 4995
+20:57:08 - Got message [0|165||AB_RESULT|4]
+20:57:08 - Got message [1|110||AB_RESULT|4]
+20:57:08 - Got message [2|55||AB_RESULT|4]
+20:57:09 - Got message [0|162||AB_RESULT|4]
+20:57:09 - Got message [0|171||AB_RESULT|4]
+20:57:09 - Got message [1|113||AB_TOKEN|4]
+20:57:09 - Received AB_TOKEN from 1
+20:57:09 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=5}
+20:57:09 - Committing [4|14||AB_RESULT|4]
+20:57:09 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:09 - Forwarded AB_TOKEN to neighbor 3
+20:57:09 - Got message [1|112||AB_RESULT|4]
+20:57:09 - Got message [2|54||AB_RESULT|4]
+20:57:09 - Got message [0|168||AB_RESULT|4]
+20:57:10 - Got message [1|114||AB_RESULT|4]
+20:57:10 - Got message [1|115||AB_TOKEN|4]
+20:57:10 - Received AB_TOKEN from 1
+20:57:10 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=6}
+20:57:10 - Committing [4|16||AB_RESULT|4]
+20:57:10 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:10 - Forwarded AB_TOKEN to neighbor 3
+20:57:10 - Got message [3|13||AB_TOKEN|4]
+20:57:10 - Received AB_TOKEN from 3
+20:57:10 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=7}
+20:57:10 - Committing [4|18||AB_RESULT|4]
+20:57:10 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:10 - Forwarded AB_TOKEN to neighbor 1
+20:57:10 - Got message [2|56||AB_RESULT|4]
+20:57:10 - Got message [2|57||AB_RESULT|4]
+20:57:10 - Got message [3|15||AB_TOKEN|4]
+20:57:10 - Received AB_TOKEN from 3
+20:57:10 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=8}
+20:57:10 - Committing [4|20||AB_RESULT|4]
+20:57:10 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:10 - Forwarded AB_TOKEN to neighbor 1
+20:57:10 - Sending message [4|17||AB_TOKEN|3]
+20:57:10 - Got message [3|12||AB_RESULT|4]
+20:57:10 - Sending message [4|19||AB_TOKEN|1]
+20:57:10 - Sending message [4|14||AB_RESULT|4]
+20:57:10 - Sending message [4|15||AB_TOKEN|3]
+20:57:10 - Got message [4|14||AB_RESULT|4]
+20:57:11 - Sending message [4|16||AB_RESULT|4]
+20:57:11 - Got message [3|14||AB_RESULT|4]
+20:57:11 - Sending message [4|18||AB_RESULT|4]
+20:57:11 - Got message [4|16||AB_RESULT|4]
+20:57:11 - Got message [4|18||AB_RESULT|4]
+20:57:11 - Sending message [4|21||AB_TOKEN|1]
+20:57:11 - Got message [1|116||AB_RESULT|4]
+20:57:11 - Got message [3|18||AB_RESULT|4]
+20:57:12 - Sending message [4|20||AB_RESULT|4]
+20:57:12 - Got message [3|16||AB_RESULT|4]
+20:57:12 - Got message [4|20||AB_RESULT|4]
+20:57:12 - Got message [0|174||AB_RESULT|4]
+20:57:12 - Got message [0|180||AB_RESULT|4]
+20:57:12 - Got message [0|177||AB_RESULT|4]
+20:57:12 - Got message [1|118||AB_RESULT|4]
+20:57:13 - Got message [2|58||AB_RESULT|4]
+20:57:13 - Got message [0|183||AB_RESULT|4]
+20:57:13 - Got message [1|122||AB_RESULT|4]
+20:57:13 - Got message [1|123||AB_TOKEN|4]
+20:57:13 - Received AB_TOKEN from 1
+20:57:13 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=9}
+20:57:13 - Committing [4|22||AB_RESULT|4]
+20:57:13 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:13 - Forwarded AB_TOKEN to neighbor 3
+20:57:13 - Got message [3|21||AB_TOKEN|4]
+20:57:13 - Received AB_TOKEN from 3
+20:57:13 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=10}
+20:57:13 - Committing [4|24||AB_RESULT|4]
+20:57:13 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:13 - Forwarded AB_TOKEN to neighbor 1
+20:57:13 - Got message [1|121||AB_TOKEN|4]
+20:57:13 - Received AB_TOKEN from 1
+20:57:13 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=11}
+20:57:13 - Committing [4|26||AB_RESULT|4]
+20:57:13 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:13 - Forwarded AB_TOKEN to neighbor 3
+20:57:13 - Got message [2|60||AB_RESULT|4]
+20:57:13 - Got message [2|61||AB_RESULT|4]
+20:57:13 - Got message [3|23||AB_TOKEN|4]
+20:57:13 - Received AB_TOKEN from 3
+20:57:13 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=12}
+20:57:13 - Committing [4|28||AB_RESULT|4]
+20:57:13 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:13 - Forwarded AB_TOKEN to neighbor 1
+20:57:14 - Sending message [4|23||AB_TOKEN|3]
+20:57:14 - Got message [1|120||AB_RESULT|4]
+20:57:14 - Got message [2|59||AB_RESULT|4]
+20:57:14 - Got message [3|20||AB_RESULT|4]
+20:57:14 - Got message [3|22||AB_RESULT|4]
+20:57:14 - Sending message [4|27||AB_TOKEN|3]
+20:57:14 - Sending message [4|22||AB_RESULT|4]
+20:57:14 - Sending message [4|26||AB_RESULT|4]
+20:57:14 - Got message [4|22||AB_RESULT|4]
+20:57:14 - Got message [4|26||AB_RESULT|4]
+20:57:14 - Pausing for 15000 ms
+20:57:14 - Sending message [4|24||AB_RESULT|4]
+20:57:14 - Sending message [4|25||AB_TOKEN|1]
+20:57:14 - Starting ACHARYA_BADRINATH snapshot.
+20:57:14 - Sending message [4|28||AB_RESULT|4]
+20:57:14 - Got message [4|24||AB_RESULT|4]
+20:57:14 - Got message [4|28||AB_RESULT|4]
+20:57:15 - Sending message [4|29||AB_TOKEN|1]
+20:57:15 - Got message [3|24||AB_RESULT|4]
+20:57:15 - Sending message [4|30||AB_TOKEN|4]
+20:57:15 - Got message [4|30||AB_TOKEN|4]
+20:57:15 - Received AB_TOKEN from 4
+20:57:15 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=13}
+20:57:15 - Committing [4|33||AB_RESULT|4]
+20:57:15 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:15 - Forwarded AB_TOKEN to neighbor 1
+20:57:15 - Forwarded AB_TOKEN to neighbor 3
+20:57:15 - Sending message [4|31||AB_TOKEN|1]
+20:57:15 - Sending message [4|32||AB_TOKEN|3]
+20:57:16 - Got message [0|186||AB_RESULT|4]
+20:57:16 - Got message [3|26||AB_RESULT|4]
+20:57:16 - Sending message [4|35||AB_TOKEN|3]
+20:57:16 - Got message [2|62||AB_RESULT|4]
+20:57:16 - Got message [1|124||AB_RESULT|4]
+20:57:16 - Sending message [4|33||AB_RESULT|4]
+20:57:16 - Got message [1|128||AB_RESULT|4]
+20:57:16 - Got message [1|129||AB_TOKEN|4]
+20:57:16 - Received AB_TOKEN from 1
+20:57:16 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=14}
+20:57:16 - Committing [4|36||AB_RESULT|4]
+20:57:16 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:16 - Forwarded AB_TOKEN to neighbor 3
+20:57:16 - Got message [4|33||AB_RESULT|4]
+20:57:16 - Got message [1|126||AB_RESULT|4]
+20:57:16 - Sending message [4|34||AB_TOKEN|1]
+20:57:17 - Got message [0|189||AB_RESULT|4]
+20:57:17 - Got message [0|192||AB_RESULT|4]
+20:57:17 - Got message [3|28||AB_RESULT|4]
+20:57:17 - Got message [1|130||AB_RESULT|4]
+20:57:17 - Got message [2|63||AB_RESULT|4]
+20:57:17 - Got message [3|30||AB_RESULT|4]
+20:57:17 - Got message [0|195||AB_RESULT|4]
+20:57:17 - Got message [0|198||AB_RESULT|4]
+20:57:17 - Acharya-Badrinath Snapshot Results:
+20:57:17 - Servent 0: 688 bitcakes
+20:57:17 - Servent 1: 726 bitcakes
+20:57:17 - Servent 2: 1026 bitcakes
+20:57:17 - Servent 3: 1282 bitcakes
+20:57:17 - Servent 4: 1278 bitcakes
+20:57:17 - Total bitcakes in system (AB): 5000
+20:57:17 - Sending message [4|37||AB_TOKEN|3]
+20:57:18 - Got message [0|201||AB_RESULT|4]
+20:57:18 - Got message [3|37||AB_TOKEN|4]
+20:57:18 - Received AB_TOKEN from 3
+20:57:18 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=15}
+20:57:18 - Committing [4|38||AB_RESULT|4]
+20:57:18 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:18 - Forwarded AB_TOKEN to neighbor 1
+20:57:18 - Got message [1|135||AB_TOKEN|4]
+20:57:18 - Received AB_TOKEN from 1
+20:57:18 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=16}
+20:57:18 - Committing [4|40||AB_RESULT|4]
+20:57:18 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:18 - Forwarded AB_TOKEN to neighbor 3
+20:57:18 - Sending message [4|36||AB_RESULT|4]
+20:57:18 - Got message [4|36||AB_RESULT|4]
+20:57:18 - Got message [3|33||AB_TOKEN|4]
+20:57:18 - Received AB_TOKEN from 3
+20:57:18 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=17}
+20:57:18 - Committing [4|42||AB_RESULT|4]
+20:57:18 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:18 - Forwarded AB_TOKEN to neighbor 1
+20:57:18 - Got message [2|64||AB_RESULT|4]
+20:57:18 - Got message [1|134||AB_RESULT|4]
+20:57:18 - Got message [3|35||AB_TOKEN|4]
+20:57:18 - Received AB_TOKEN from 3
+20:57:18 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=18}
+20:57:18 - Committing [4|44||AB_RESULT|4]
+20:57:18 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:18 - Forwarded AB_TOKEN to neighbor 1
+20:57:18 - Got message [1|132||AB_RESULT|4]
+20:57:18 - Got message [1|137||AB_TOKEN|4]
+20:57:18 - Received AB_TOKEN from 1
+20:57:18 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=19}
+20:57:18 - Committing [4|46||AB_RESULT|4]
+20:57:18 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:18 - Forwarded AB_TOKEN to neighbor 3
+20:57:18 - Got message [2|66||AB_RESULT|4]
+20:57:18 - Got message [2|67||AB_RESULT|4]
+20:57:18 - Sending message [4|42||AB_RESULT|4]
+20:57:18 - Sending message [4|40||AB_RESULT|4]
+20:57:18 - Sending message [4|39||AB_TOKEN|1]
+20:57:18 - Sending message [4|41||AB_TOKEN|3]
+20:57:18 - Sending message [4|43||AB_TOKEN|1]
+20:57:18 - Sending message [4|38||AB_RESULT|4]
+20:57:18 - Got message [0|204||AB_RESULT|4]
+20:57:19 - Got message [3|34||AB_RESULT|4]
+20:57:19 - Got message [2|65||AB_RESULT|4]
+20:57:19 - Got message [3|32||AB_RESULT|4]
+20:57:19 - Got message [3|36||AB_RESULT|4]
+20:57:19 - Got message [4|42||AB_RESULT|4]
+20:57:19 - Got message [1|136||AB_RESULT|4]
+20:57:19 - Got message [4|40||AB_RESULT|4]
+20:57:19 - Sending message [4|45||AB_TOKEN|1]
+20:57:19 - Got message [3|38||AB_RESULT|4]
+20:57:19 - Sending message [4|47||AB_TOKEN|3]
+20:57:19 - Got message [2|68||AB_RESULT|4]
+20:57:19 - Got message [1|139||AB_TOKEN|4]
+20:57:19 - Received AB_TOKEN from 1
+20:57:19 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=20}
+20:57:19 - Committing [4|48||AB_RESULT|4]
+20:57:19 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:19 - Forwarded AB_TOKEN to neighbor 3
+20:57:19 - Got message [4|38||AB_RESULT|4]
+20:57:19 - Got message [0|207||AB_RESULT|4]
+20:57:19 - Sending message [4|44||AB_RESULT|4]
+20:57:19 - Got message [1|138||AB_RESULT|4]
+20:57:19 - Got message [4|44||AB_RESULT|4]
+20:57:19 - Got message [3|40||AB_RESULT|4]
+20:57:19 - Got message [3|42||AB_RESULT|4]
+20:57:20 - Sending message [4|46||AB_RESULT|4]
+20:57:20 - Got message [0|210||AB_RESULT|4]
+20:57:20 - Got message [0|213||AB_RESULT|4]
+20:57:20 - Got message [4|46||AB_RESULT|4]
+20:57:20 - Sending message [4|48||AB_RESULT|4]
+20:57:20 - Got message [1|140||AB_RESULT|4]
+20:57:20 - Got message [1|142||AB_RESULT|4]
+20:57:20 - Got message [1|145||AB_TOKEN|4]
+20:57:20 - Received AB_TOKEN from 1
+20:57:20 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=21}
+20:57:20 - Committing [4|50||AB_RESULT|4]
+20:57:20 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:20 - Forwarded AB_TOKEN to neighbor 3
+20:57:20 - Got message [2|69||AB_RESULT|4]
+20:57:20 - Got message [3|44||AB_RESULT|4]
+20:57:20 - Sending message [4|49||AB_TOKEN|3]
+20:57:20 - Got message [2|70||AB_RESULT|4]
+20:57:20 - Got message [3|43||AB_TOKEN|4]
+20:57:20 - Received AB_TOKEN from 3
+20:57:20 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=22}
+20:57:20 - Committing [4|52||AB_RESULT|4]
+20:57:20 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:20 - Forwarded AB_TOKEN to neighbor 1
+20:57:20 - Got message [1|146||AB_RESULT|4]
+20:57:20 - Got message [1|144||AB_RESULT|4]
+20:57:20 - Got message [4|48||AB_RESULT|4]
+20:57:21 - Got message [0|216||AB_RESULT|4]
+20:57:21 - Sending message [4|50||AB_RESULT|4]
+20:57:21 - Sending message [4|53||AB_TOKEN|1]
+20:57:21 - Got message [0|222||AB_RESULT|4]
+20:57:21 - Got message [0|219||AB_RESULT|4]
+20:57:21 - Got message [4|50||AB_RESULT|4]
+20:57:21 - Got message [3|46||AB_RESULT|4]
+20:57:21 - Got message [0|225||AB_RESULT|4]
+20:57:21 - Got message [3|47||AB_TOKEN|4]
+20:57:21 - Received AB_TOKEN from 3
+20:57:21 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=23}
+20:57:21 - Committing [4|54||AB_RESULT|4]
+20:57:21 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:21 - Forwarded AB_TOKEN to neighbor 1
+20:57:21 - Got message [2|71||AB_RESULT|4]
+20:57:21 - Got message [3|51||AB_TOKEN|4]
+20:57:21 - Received AB_TOKEN from 3
+20:57:21 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=24}
+20:57:21 - Committing [4|56||AB_RESULT|4]
+20:57:21 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:21 - Forwarded AB_TOKEN to neighbor 1
+20:57:21 - Got message [1|148||AB_RESULT|4]
+20:57:22 - Got message [2|72||AB_RESULT|4]
+20:57:22 - Got message [2|73||AB_RESULT|4]
+20:57:22 - Got message [1|149||AB_TOKEN|4]
+20:57:22 - Received AB_TOKEN from 1
+20:57:22 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=25}
+20:57:22 - Committing [4|58||AB_RESULT|4]
+20:57:22 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:22 - Forwarded AB_TOKEN to neighbor 3
+20:57:22 - Got message [3|48||AB_RESULT|4]
+20:57:22 - Sending message [4|51||AB_TOKEN|3]
+20:57:22 - Sending message [4|52||AB_RESULT|4]
+20:57:22 - Got message [4|52||AB_RESULT|4]
+20:57:22 - Got message [3|50||AB_RESULT|4]
+20:57:22 - Got message [0|228||AB_RESULT|4]
+20:57:22 - Got message [2|75||AB_RESULT|4]
+20:57:22 - Got message [3|53||AB_TOKEN|4]
+20:57:22 - Received AB_TOKEN from 3
+20:57:22 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=26}
+20:57:22 - Committing [4|60||AB_RESULT|4]
+20:57:22 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:22 - Forwarded AB_TOKEN to neighbor 1
+20:57:22 - Got message [2|74||AB_RESULT|4]
+20:57:22 - Sending message [4|54||AB_RESULT|4]
+20:57:22 - Sending message [4|58||AB_RESULT|4]
+20:57:22 - Sending message [4|59||AB_TOKEN|3]
+20:57:22 - Got message [1|150||AB_RESULT|4]
+20:57:22 - Got message [3|52||AB_RESULT|4]
+20:57:22 - Got message [4|54||AB_RESULT|4]
+20:57:22 - Got message [4|58||AB_RESULT|4]
+20:57:22 - Got message [3|54||AB_RESULT|4]
+20:57:22 - Got message [1|153||AB_TOKEN|4]
+20:57:22 - Received AB_TOKEN from 1
+20:57:22 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=27}
+20:57:22 - Committing [4|62||AB_RESULT|4]
+20:57:22 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:22 - Forwarded AB_TOKEN to neighbor 3
+20:57:23 - Sending message [4|57||AB_TOKEN|1]
+20:57:23 - Sending message [4|55||AB_TOKEN|1]
+20:57:23 - Sending message [4|56||AB_RESULT|4]
+20:57:23 - Got message [1|152||AB_RESULT|4]
+20:57:23 - Got message [2|76||AB_RESULT|4]
+20:57:23 - Got message [4|56||AB_RESULT|4]
+20:57:23 - Sending message [4|60||AB_RESULT|4]
+20:57:23 - Got message [4|60||AB_RESULT|4]
+20:57:23 - Got message [1|155||AB_TOKEN|4]
+20:57:23 - Received AB_TOKEN from 1
+20:57:23 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=28}
+20:57:23 - Committing [4|64||AB_RESULT|4]
+20:57:23 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:23 - Forwarded AB_TOKEN to neighbor 3
+20:57:23 - Sending message [4|62||AB_RESULT|4]
+20:57:23 - Sending message [4|61||AB_TOKEN|1]
+20:57:23 - Got message [1|154||AB_RESULT|4]
+20:57:23 - Got message [4|62||AB_RESULT|4]
+20:57:23 - Sending message [4|63||AB_TOKEN|3]
+20:57:23 - Got message [3|56||AB_RESULT|4]
+20:57:24 - Got message [0|231||AB_RESULT|4]
+20:57:24 - Got message [0|234||AB_RESULT|4]
+20:57:25 - Sending message [4|65||AB_TOKEN|3]
+20:57:25 - Got message [1|158||AB_RESULT|4]
+20:57:25 - Sending message [4|64||AB_RESULT|4]
+20:57:25 - Got message [1|156||AB_RESULT|4]
+20:57:25 - Got message [3|60||AB_RESULT|4]
+20:57:25 - Got message [0|237||AB_RESULT|4]
+20:57:25 - Got message [1|162||AB_RESULT|4]
+20:57:25 - Got message [1|160||AB_RESULT|4]
+20:57:25 - Got message [0|243||AB_RESULT|4]
+20:57:25 - Got message [1|161||AB_TOKEN|4]
+20:57:25 - Received AB_TOKEN from 1
+20:57:25 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=29}
+20:57:25 - Committing [4|66||AB_RESULT|4]
+20:57:25 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:25 - Forwarded AB_TOKEN to neighbor 3
+20:57:25 - Got message [2|78||AB_RESULT|4]
+20:57:25 - Got message [4|64||AB_RESULT|4]
+20:57:25 - Got message [2|77||AB_RESULT|4]
+20:57:25 - Got message [3|58||AB_RESULT|4]
+20:57:25 - Got message [1|165||AB_TOKEN|4]
+20:57:25 - Received AB_TOKEN from 1
+20:57:25 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=30}
+20:57:25 - Committing [4|68||AB_RESULT|4]
+20:57:25 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:25 - Forwarded AB_TOKEN to neighbor 3
+20:57:25 - Got message [3|61||AB_TOKEN|4]
+20:57:25 - Received AB_TOKEN from 3
+20:57:25 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=31}
+20:57:25 - Committing [4|70||AB_RESULT|4]
+20:57:25 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:25 - Forwarded AB_TOKEN to neighbor 1
+20:57:25 - Got message [1|164||AB_RESULT|4]
+20:57:26 - Got message [0|240||AB_RESULT|4]
+20:57:26 - Got message [3|66||AB_RESULT|4]
+20:57:26 - Sending message [4|68||AB_RESULT|4]
+20:57:26 - Sending message [4|69||AB_TOKEN|3]
+20:57:26 - Got message [0|246||AB_RESULT|4]
+20:57:26 - Sending message [4|70||AB_RESULT|4]
+20:57:26 - Got message [0|249||AB_RESULT|4]
+20:57:26 - Got message [3|64||AB_RESULT|4]
+20:57:26 - Got message [3|65||AB_TOKEN|4]
+20:57:26 - Received AB_TOKEN from 3
+20:57:26 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=32}
+20:57:26 - Committing [4|72||AB_RESULT|4]
+20:57:26 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:26 - Forwarded AB_TOKEN to neighbor 1
+20:57:26 - Got message [2|81||AB_RESULT|4]
+20:57:26 - Sending message [4|66||AB_RESULT|4]
+20:57:26 - Got message [0|252||AB_RESULT|4]
+20:57:26 - Got message [4|68||AB_RESULT|4]
+20:57:26 - Got message [3|67||AB_TOKEN|4]
+20:57:26 - Received AB_TOKEN from 3
+20:57:26 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=33}
+20:57:26 - Committing [4|74||AB_RESULT|4]
+20:57:26 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:26 - Forwarded AB_TOKEN to neighbor 1
+20:57:26 - Got message [2|79||AB_RESULT|4]
+20:57:26 - Got message [4|70||AB_RESULT|4]
+20:57:26 - Got message [3|62||AB_RESULT|4]
+20:57:26 - Got message [4|66||AB_RESULT|4]
+20:57:26 - Got message [3|69||AB_TOKEN|4]
+20:57:26 - Received AB_TOKEN from 3
+20:57:26 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=34}
+20:57:26 - Committing [4|76||AB_RESULT|4]
+20:57:26 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:26 - Forwarded AB_TOKEN to neighbor 1
+20:57:26 - Sending message [4|67||AB_TOKEN|3]
+20:57:26 - Got message [2|80||AB_RESULT|4]
+20:57:27 - Sending message [4|71||AB_TOKEN|1]
+20:57:27 - Got message [1|166||AB_RESULT|4]
+20:57:27 - Got message [1|167||AB_TOKEN|4]
+20:57:27 - Received AB_TOKEN from 1
+20:57:27 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=35}
+20:57:27 - Committing [4|78||AB_RESULT|4]
+20:57:27 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:27 - Forwarded AB_TOKEN to neighbor 3
+20:57:27 - Got message [2|83||AB_RESULT|4]
+20:57:27 - Got message [1|169||AB_TOKEN|4]
+20:57:27 - Received AB_TOKEN from 1
+20:57:27 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=36}
+20:57:27 - Committing [4|80||AB_RESULT|4]
+20:57:27 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:27 - Forwarded AB_TOKEN to neighbor 3
+20:57:27 - Got message [2|82||AB_RESULT|4]
+20:57:27 - Sending message [4|74||AB_RESULT|4]
+20:57:27 - Got message [3|68||AB_RESULT|4]
+20:57:27 - Got message [4|74||AB_RESULT|4]
+20:57:27 - Sending message [4|73||AB_TOKEN|1]
+20:57:27 - Sending message [4|79||AB_TOKEN|3]
+20:57:27 - Sending message [4|81||AB_TOKEN|3]
+20:57:27 - Sending message [4|80||AB_RESULT|4]
+20:57:27 - Sending message [4|75||AB_TOKEN|1]
+20:57:27 - Got message [0|255||AB_RESULT|4]
+20:57:27 - Sending message [4|72||AB_RESULT|4]
+20:57:28 - Got message [1|168||AB_RESULT|4]
+20:57:28 - Got message [4|80||AB_RESULT|4]
+20:57:28 - Sending message [4|78||AB_RESULT|4]
+20:57:28 - Got message [3|72||AB_RESULT|4]
+20:57:28 - Got message [3|70||AB_RESULT|4]
+20:57:28 - Sending message [4|76||AB_RESULT|4]
+20:57:28 - Got message [4|72||AB_RESULT|4]
+20:57:28 - Got message [2|84||AB_RESULT|4]
+20:57:28 - Got message [4|78||AB_RESULT|4]
+20:57:28 - Got message [4|76||AB_RESULT|4]
+20:57:28 - Sending message [4|77||AB_TOKEN|1]
+20:57:28 - Got message [1|172||AB_RESULT|4]
+20:57:28 - Got message [1|170||AB_RESULT|4]
+20:57:28 - Got message [3|74||AB_RESULT|4]
+20:57:28 - Got message [1|176||AB_RESULT|4]
+20:57:28 - Got message [3|76||AB_RESULT|4]
+20:57:29 - Got message [0|258||AB_RESULT|4]
+20:57:29 - Got message [2|85||AB_RESULT|4]
+20:57:29 - Got message [0|261||AB_RESULT|4]
+20:57:29 - Got message [1|174||AB_RESULT|4]
+20:57:29 - Got message [0|264||AB_RESULT|4]
+20:57:29 - Got message [1|178||AB_RESULT|4]
+20:57:29 - Got message [1|177||AB_TOKEN|4]
+20:57:29 - Received AB_TOKEN from 1
+20:57:29 - Vector clock: {0=0, 1=0, 2=0, 3=0, 4=37}
+20:57:29 - Committing [4|82||AB_RESULT|4]
+20:57:29 - Sent AB_RESULT to [4|localhost|1500] with amount: 1278
+20:57:29 - Forwarded AB_TOKEN to neighbor 3
+20:57:29 - My info: [4|localhost|1500]
+20:57:29 - Neighbors:
+20:57:29 - 1 3 
+20:57:29 - Stopping...
+20:57:30 - Got message [0|267||AB_RESULT|4]

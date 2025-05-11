@@ -75,8 +75,25 @@ public class MessageUtil {
 	}
 	
 	public static void sendMessage(Message message) {
-		Thread delayedSender = new Thread(new DelayedMessageSender(message));
+		if (message.getMessageType() == MessageType.TRANSACTION) {
+			if (Math.random() < 0.2) {
+				int delayMillis = 5000;
+				AppConfig.timestampedStandardPrint("Artificially delaying transaction ["
+						+ message.getOriginalSenderInfo().getId() + " -> " + message.getReceiverInfo().getId()
+						+ "] by " + delayMillis + "ms");
 
+				Thread delayedSender = new Thread(() -> {
+					try {
+						Thread.sleep(delayMillis);
+					} catch (InterruptedException ignored) {}
+					new DelayedMessageSender(message).run();
+				});
+				delayedSender.start();
+				return;
+			}
+		}
+
+		Thread delayedSender = new Thread(new DelayedMessageSender(message));
 		delayedSender.start();
 	}
 }

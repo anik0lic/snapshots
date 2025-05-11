@@ -1,0 +1,6 @@
+20:57:30 - Couldn't send message: [0|273||AB_RESULT|4]. Retrying 1/5.
+20:57:30 - Couldn't send message: [0|273||AB_RESULT|4]. Retrying 2/5.
+20:57:30 - Couldn't send message: [0|273||AB_RESULT|4]. Retrying 3/5.
+20:57:30 - Couldn't send message: [0|273||AB_RESULT|4]. Retrying 4/5.
+20:57:30 - Couldn't send message: [0|273||AB_RESULT|4]. Retrying 5/5.
+20:57:30 - Couldn't send message: [0|273||AB_RESULT|4]. No more retries.
