@@ -1,0 +1,272 @@
+package app.snapshot_bitcake;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+import app.AppConfig;
+import app.ServentInfo;
+import app.snapshot_bitcake.acharya_badrinath.AbBitcakeManager;
+import app.snapshot_bitcake.acharya_badrinath.AbSnapshotResult;
+import app.snapshot_bitcake.coordinated_checkpointing.KcBitcakeManager;
+import app.snapshot_bitcake.coordinated_checkpointing.KcSnapshotResult;
+import servent.message.CausalBroadcastShared;
+import servent.message.Message;
+import servent.message.snapshot.acharya_badrinath.AbTokenMessage;
+import servent.message.snapshot.coordinated_checkpointing.KcRequestMessage;
+import servent.message.snapshot.coordinated_checkpointing.KcResumeMessage;
+import servent.message.util.MessageUtil;
+
+/**
+ * Main snapshot collector class. Has support for Naive, Chandy-Lamport
+ * and Lai-Yang snapshot algorithms.
+ * 
+ * @author bmilojkovic
+ *
+ */
+public class SnapshotCollectorWorker implements SnapshotCollector {
+
+	private volatile boolean working = true;
+	
+	private AtomicBoolean collecting = new AtomicBoolean(false);
+
+	private Map<Integer, KcSnapshotResult> collectedKcValues = new ConcurrentHashMap<>();
+	private Map<Integer, AbSnapshotResult> collectedAbValues = new ConcurrentHashMap<>();
+
+	private SnapshotType snapshotType;
+	
+	private BitcakeManager bitcakeManager;
+
+	public SnapshotCollectorWorker(SnapshotType snapshotType) {
+		this.snapshotType = snapshotType;
+		
+		switch(snapshotType) {
+			case COORDINATED_CHECKPOINTING:
+				 this.bitcakeManager = new KcBitcakeManager();
+				break;
+
+			case ACHARYA_BADRINATH:
+				this.bitcakeManager = new AbBitcakeManager();
+				break;
+
+			case NONE:
+				AppConfig.timestampedErrorPrint("Making snapshot collector without specifying type. Exiting...");
+				System.exit(0);
+			}
+	}
+	
+	@Override
+	public BitcakeManager getBitcakeManager() {
+		return bitcakeManager;
+	}
+	
+	@Override
+	public void run() {
+		while(working) {
+			
+			/*
+			 * Not collecting yet - just sleep until we start actual work, or finish
+			 */
+			while (!collecting.get()) {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				if (!working) {
+					return;
+				}
+			}
+			
+			/*
+			 * Collecting is done in three stages:
+			 * 1. Send messages asking for values
+			 * 2. Wait for all the responses
+			 * 3. Print result
+			 */
+			
+			//1 send asks
+			switch (snapshotType) {
+				case COORDINATED_CHECKPOINTING:
+					AppConfig.timestampedStandardPrint("Starting COORDINATED_CHECKPOINTING snapshot.");
+					((KcBitcakeManager) bitcakeManager).handleRequest(new KcRequestMessage(AppConfig.myServentInfo, AppConfig.myServentInfo), this);
+					break;
+
+				case ACHARYA_BADRINATH:
+					AppConfig.timestampedStandardPrint("Starting ACHARYA_BADRINATH snapshot.");
+
+					Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcastShared.getVectorClock());
+					Message tokenMessageMe = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.myServentInfo, vectorClock);
+					MessageUtil.sendMessage(tokenMessageMe);
+
+					for (Integer neighborId : AppConfig.myServentInfo.getNeighbors()) {
+						Message tokenMessage = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.getInfoById(neighborId), vectorClock);
+						MessageUtil.sendMessage(tokenMessage);
+					}
+
+
+//					collectedAbValues.put(AppConfig.myServentInfo.getId(), ((AbBitcakeManager) bitcakeManager).startSnapshot(this));
+//					((AbBitcakeManager) bitcakeManager).startSnapshot(this);
+
+//					Map<Integer, Integer> myClock = new ConcurrentHashMap<>(CausalBroadcastShared.getVectorClock());
+//					Message abTokenMessage = new AbTokenMessage(AppConfig.myServentInfo, null, myClock);
+//					for (Integer neighbor : AppConfig.myServentInfo.getNeighbors()) {
+//						abTokenMessage = abTokenMessage.changeReceiver(neighbor);
+//
+//						MessageUtil.sendMessage(abTokenMessage);
+//					}
+//
+//					//Komitujemo lokalno poslatu poruku
+//					Message abTokenCommitMessage = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.myServentInfo, myClock);
+//					CausalBroadcastShared.commitCausalMessage(abTokenCommitMessage, this);
+//
+//					//Belezimo svoj rezultat
+//					AbSnapshotResult myResult = new AbSnapshotResult(AppConfig.myServentInfo.getId(),
+//							bitcakeManager.getCurrentBitcakeAmount(),
+//							((AbBitcakeManager) bitcakeManager).getSent(),
+//							((AbBitcakeManager) bitcakeManager).getReceived());
+//					collectedAbValues.put(AppConfig.myServentInfo.getId(), myResult);
+					break;
+
+				case NONE:
+					//Shouldn't be able to come here. See constructor.
+					break;
+			}
+			
+			//2 wait for responses or finish
+			boolean waiting = true;
+			while (waiting) {
+				switch (snapshotType) {
+					case COORDINATED_CHECKPOINTING:
+						if (collectedKcValues.size() == AppConfig.getServentCount()) {
+							waiting = false;
+						}
+						break;
+
+					case ACHARYA_BADRINATH:
+						if (collectedAbValues.size() == AppConfig.getServentCount()) {
+							waiting = false;
+						}
+						break;
+
+					case NONE:
+						//Shouldn't be able to come here. See constructor.
+						break;
+				}
+				
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				if (!working) {
+					return;
+				}
+			}
+			
+			//print
+			int sum;
+			switch (snapshotType) {
+				case COORDINATED_CHECKPOINTING:
+					AppConfig.timestampedStandardPrint("Coordinated Checkpointing Snapshot Results:");
+					sum = 0;
+					for (Entry<Integer, KcSnapshotResult> entry : collectedKcValues.entrySet()) {
+						sum += entry.getValue().getRecordedAmount();
+						AppConfig.timestampedStandardPrint("Servent " + entry.getKey() + ": " + entry.getValue().getRecordedAmount() + " bitcakes");
+					}
+					AppConfig.timestampedStandardPrint("Total bitcakes in system (KC): " + sum);
+
+					AppConfig.timestampedStandardPrint("KC Snapshot complete. Sending RESUME to neighbors.");
+					for (int i = 0; i < AppConfig.getServentCount(); i++) {
+						if (i == AppConfig.myServentInfo.getId()) {
+							if (bitcakeManager instanceof KcBitcakeManager) {
+								((KcBitcakeManager) bitcakeManager).handleResume();
+							}
+							continue;
+						}
+						ServentInfo serventInfo = AppConfig.getInfoById(i);
+						Message kcResumeMessage = new KcResumeMessage(AppConfig.myServentInfo, serventInfo);
+						MessageUtil.sendMessage(kcResumeMessage);
+					}
+
+					collectedKcValues.clear();
+					collecting.set(false);
+
+					break;
+
+				case ACHARYA_BADRINATH:
+					AppConfig.timestampedStandardPrint("Acharya-Badrinath Snapshot Results:");
+					sum = 0;
+					for(Entry<Integer, AbSnapshotResult> entry : collectedAbValues.entrySet()) {
+						sum += entry.getValue().getRecordedAmount();
+						AppConfig.timestampedStandardPrint("Servent " + entry.getKey() + ": " + entry.getValue().getRecordedAmount() + " bitcakes");
+					}
+
+					for (int i = 0; i < AppConfig.getServentCount(); i++) {
+						for (int j = 0; j < AppConfig.getServentCount(); j++) {
+							if (i != j) {
+								if (AppConfig.getInfoById(i).getNeighbors().contains(j) &&
+										AppConfig.getInfoById(j).getNeighbors().contains(i)) {
+									List<Message> sent = collectedAbValues.get(i).getSent().get(j);
+									List<Message> received = collectedAbValues.get(j).getReceived().get(i);
+
+									if (sent.size() != received.size()) {
+										int unreceived = Math.abs(sent.size() - received.size());
+										AppConfig.timestampedStandardPrint("Unreceived amounts between " + i + " and " + j + ": " + unreceived);
+										sum += unreceived;
+									}
+								}
+							}
+						}
+					}
+
+					AppConfig.timestampedStandardPrint("Total bitcakes in system (AB): " + sum);
+					collectedAbValues.clear();
+					collecting.set(false);
+					break;
+
+				case ALAGAR_VENKATESAN:
+					break;
+
+				case NONE:
+					//Shouldn't be able to come here. See constructor.
+					break;
+				}
+			collecting.set(false);
+		}
+
+	}
+
+	@Override
+	public void addKcSnapshotInfo(int id, KcSnapshotResult kcSnapshotResult) {
+		collectedKcValues.put(id, kcSnapshotResult);
+	}
+
+	@Override
+	public void addAbSnapshotInfo(int id, AbSnapshotResult abSnapshotResult) {
+		collectedAbValues.put(id, abSnapshotResult);
+	}
+
+
+	@Override
+	public void startCollecting() {
+		boolean oldValue = this.collecting.getAndSet(true);
+		
+		if (oldValue) {
+			AppConfig.timestampedErrorPrint("Tried to start collecting before finished with previous.");
+		}
+	}
+
+	@Override
+	public boolean isCollecting() { return collecting.get(); }
+	
+	@Override
+	public void stop() {
+		working = false;
+	}
+
+}

@@ -1,0 +1,10 @@
+16:38:47 - Couldn't send message: [2|50||AB_RESULT|4]. Retrying 1/5.
+16:38:47 - Couldn't send message: [2|50||AB_RESULT|4]. Retrying 2/5.
+16:38:47 - Couldn't send message: [2|50||AB_RESULT|4]. Retrying 3/5.
+16:38:47 - Couldn't send message: [2|50||AB_RESULT|4]. Retrying 4/5.
+16:38:47 - Couldn't send message: [2|50||AB_RESULT|4]. Retrying 5/5.
+16:38:47 - Couldn't send message: [2|50||AB_RESULT|4]. No more retries.
+16:38:47 - Error in reading socket on /127.0.0.1:51341
+Exception in thread "Thread-1" java.lang.NullPointerException
+	at servent.SimpleServentListener.run(SimpleServentListener.java:77)
+	at java.lang.Thread.run(Thread.java:750)

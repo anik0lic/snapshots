@@ -1,0 +1,5 @@
+transaction_burst
+pause 35000
+info
+pause 10000
+stop
