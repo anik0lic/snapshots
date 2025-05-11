@@ -53,7 +53,6 @@ public class TransactionBurstCommand implements CLICommand {
 					Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcastShared.getVectorClock());
 
 					if (AppConfig.SNAPSHOT_TYPE == SnapshotType.ACHARYA_BADRINATH) {
-						AppConfig.timestampedStandardPrint("Vector clock in transaction burst: " + vectorClock);
 						transactionMessage = new TransactionMessage(
 								AppConfig.myServentInfo, neighborInfo, amount, bitcakeManager, vectorClock);
 

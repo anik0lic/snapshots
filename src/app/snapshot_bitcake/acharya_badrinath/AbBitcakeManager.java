@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiFunction;
 
@@ -23,6 +24,8 @@ public class AbBitcakeManager implements BitcakeManager {
     private static final Object historyLock = new Object();
     private final Map<Integer, List<Message>> sent = new ConcurrentHashMap<>();
     private final Map<Integer, List<Message>> received = new ConcurrentHashMap<>();
+
+    private final AtomicBoolean hasRecordedSnapshot = new AtomicBoolean(false);
 
     public AbBitcakeManager() {
         for (int i = 0; i < AppConfig.getServentCount(); i++) {
@@ -58,73 +61,48 @@ public class AbBitcakeManager implements BitcakeManager {
         }
     }
 
-    public void startSnapshot(SnapshotCollector snapshotCollector) {
-            Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcastShared.getVectorClock());
+    public void handleRequest(SnapshotCollector snapshotCollector) {
+        Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcastShared.getVectorClock());
 
-            Message abTokenMessage = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.myServentInfo, vectorClock);
+        Message tokenMessageMe = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.myServentInfo, vectorClock);
+        MessageUtil.sendMessage(tokenMessageMe);
 
-            CausalBroadcastShared.addPendingMessage(abTokenMessage);
-            CausalBroadcastShared.checkPendingMessages(snapshotCollector);
-
-            for (Integer neighborId : AppConfig.myServentInfo.getNeighbors()) {
-                Message abTokenMessageNeighbor = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.getInfoById(neighborId), vectorClock);
-//                Message abTokenMessageNeighbor = abTokenMessage.changeReceiver(neighborId);
-
-                CausalBroadcastShared.commitCausalMessage(abTokenMessageNeighbor, snapshotCollector);
-                MessageUtil.sendMessage(abTokenMessageNeighbor.changeReceiver(neighborId).makeMeASender());
-
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-
-//            CausalBroadcastShared.commitCausalMessage(abTokenMessage.changeReceiver(AppConfig.myServentInfo.getId()), snapshotCollector);
-//
-//            AbSnapshotResult result = new AbSnapshotResult(AppConfig.myServentInfo.getId(), getCurrentBitcakeAmount(), sent, received);
-//            return result;
+        for (Integer neighborId : AppConfig.myServentInfo.getNeighbors()) {
+            Message tokenMessage = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.getInfoById(neighborId), vectorClock);
+            MessageUtil.sendMessage(tokenMessage);
+        }
     }
 
     public void handleToken(ServentInfo collector, SnapshotCollector snapshotCollector) {
-            int recordedAmount = getCurrentBitcakeAmount();
-            Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcastShared.getVectorClock());
+        if (hasRecordedSnapshot.getAndSet(true)) {
+            AppConfig.timestampedStandardPrint("Already recorded a snapshot, ignoring token from " + collector);
+            return;
+        }
 
-            AbSnapshotResult abSnapshotResult = new AbSnapshotResult(AppConfig.myServentInfo.getId(), recordedAmount, getSent(), getReceived());
+        int recordedAmount = getCurrentBitcakeAmount();
+        Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcastShared.getVectorClock());
 
-            Message resultMessage = new AbResultMessage(AppConfig.myServentInfo, collector, vectorClock, abSnapshotResult);
-            CausalBroadcastShared.commitCausalMessage(resultMessage, snapshotCollector);
-            MessageUtil.sendMessage(resultMessage);
-            AppConfig.timestampedStandardPrint("Sent AB tell response to " + collector +
-                " with amount: " + currentAmount);
-//            for (Integer neighborId : AppConfig.myServentInfo.getNeighbors()) {
-//                resultMessage = resultMessage.changeReceiver(neighborId);
-//
-//                MessageUtil.sendMessage(resultMessage);
-//            }
+        AbSnapshotResult abSnapshotResult = new AbSnapshotResult(AppConfig.myServentInfo.getId(), recordedAmount, getSent(), getReceived());
+        Message resultMessage = new AbResultMessage(AppConfig.myServentInfo, collector, vectorClock, abSnapshotResult);
 
-//            Message resultCommitMessage = new AbResultMessage(AppConfig.myServentInfo, AppConfig.myServentInfo, vectorClock, abSnapshotResult);
-//            CausalBroadcastShared.commitCausalMessage(resultCommitMessage, snapshotCollector);
+        CausalBroadcastShared.commitCausalMessage(resultMessage, snapshotCollector);
+        MessageUtil.sendMessage(resultMessage);
+        AppConfig.timestampedStandardPrint("Sent AB_RESULT to " + collector +
+            " with amount: " + recordedAmount);
 
-//            if (collector.getId() == AppConfig.myServentInfo.getId()) {
-//                Message abResultMessage = new AbResultMessage(AppConfig.myServentInfo, AppConfig.myServentInfo, vectorClock, abSnapshotResult);
-//
-//                CausalBroadcastShared.addPendingMessage(abResultMessage);
-//                CausalBroadcastShared.checkPendingMessages(snapshotCollector);
-//            }
-//            else {
-//                for (Integer neighborId : AppConfig.myServentInfo.getNeighbors()) {
-//                    Message abResultMessageNeighbor = new AbResultMessage(AppConfig.myServentInfo, AppConfig.getInfoById(neighborId), vectorClock, abSnapshotResult);
-//
-//                    CausalBroadcastShared.commitCausalMessage(abResultMessageNeighbor, snapshotCollector);
-//                    MessageUtil.sendMessage(abResultMessageNeighbor.changeReceiver(neighborId).makeMeASender());
-//                    try {
-//                        Thread.sleep(100);
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }
+        for (Integer neighborId : AppConfig.myServentInfo.getNeighbors()) {
+            if (neighborId != collector.getId()) {
+                ServentInfo neighborInfo = AppConfig.getInfoById(neighborId);
+                Message tokenMessage = new AbTokenMessage(AppConfig.myServentInfo, neighborInfo, vectorClock);
+                MessageUtil.sendMessage(tokenMessage);
+                AppConfig.timestampedStandardPrint("Forwarded AB_TOKEN to neighbor " + neighborId);
+            }
+        }
+    }
+
+    public void resetSnapshotState() {
+        hasRecordedSnapshot.set(false);
+        // Optionally clear sent/received maps if they should be isolated per snapshot
     }
 
     public Map<Integer, List<Message>> getSent() {

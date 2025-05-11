@@ -1,4 +1,0 @@
-16:38:47 - Error in reading socket on /127.0.0.1:51362
-Exception in thread "Thread-1" java.lang.NullPointerException
-	at servent.SimpleServentListener.run(SimpleServentListener.java:77)
-	at java.lang.Thread.run(Thread.java:750)

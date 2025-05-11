@@ -14,6 +14,8 @@ import app.Cancellable;
 import app.snapshot_bitcake.SnapshotCollector;
 import app.snapshot_bitcake.SnapshotType;
 import servent.handler.*;
+import servent.handler.snapshot.acharya_badrinath.AbResultHandler;
+import servent.handler.snapshot.acharya_badrinath.AbTokenHandler;
 import servent.handler.snapshot.coordinated_checkpointing.KcAckHandler;
 import servent.handler.snapshot.coordinated_checkpointing.KcRequestHandler;
 import servent.handler.snapshot.coordinated_checkpointing.KcResumeHandler;
@@ -88,11 +90,14 @@ public class SimpleServentListener implements Runnable, Cancellable {
 					case KC_REQUEST:
 						messageHandler = new KcRequestHandler(clientMessage, snapshotCollector);
 						break;
-//					case TRANSACTION:
+
 					case AB_RESULT:
-					case AB_TOKEN:
-						messageHandler = new CausalMessageHandler(clientMessage, snapshotCollector);
+						messageHandler = new AbResultHandler(clientMessage, snapshotCollector);
 						break;
+					case AB_TOKEN:
+						messageHandler = new AbTokenHandler(clientMessage, snapshotCollector);
+						break;
+
 					case POISON:
 						break;
 				}

@@ -97,38 +97,16 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 
 				case ACHARYA_BADRINATH:
 					AppConfig.timestampedStandardPrint("Starting ACHARYA_BADRINATH snapshot.");
-
-					Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcastShared.getVectorClock());
-					Message tokenMessageMe = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.myServentInfo, vectorClock);
-					MessageUtil.sendMessage(tokenMessageMe);
-
-					for (Integer neighborId : AppConfig.myServentInfo.getNeighbors()) {
-						Message tokenMessage = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.getInfoById(neighborId), vectorClock);
-						MessageUtil.sendMessage(tokenMessage);
-					}
-
-
-//					collectedAbValues.put(AppConfig.myServentInfo.getId(), ((AbBitcakeManager) bitcakeManager).startSnapshot(this));
-//					((AbBitcakeManager) bitcakeManager).startSnapshot(this);
-
-//					Map<Integer, Integer> myClock = new ConcurrentHashMap<>(CausalBroadcastShared.getVectorClock());
-//					Message abTokenMessage = new AbTokenMessage(AppConfig.myServentInfo, null, myClock);
-//					for (Integer neighbor : AppConfig.myServentInfo.getNeighbors()) {
-//						abTokenMessage = abTokenMessage.changeReceiver(neighbor);
+					((AbBitcakeManager) bitcakeManager).handleRequest(this);
+//					Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcastShared.getVectorClock());
 //
-//						MessageUtil.sendMessage(abTokenMessage);
+//					Message tokenMessageMe = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.myServentInfo, vectorClock);
+//					MessageUtil.sendMessage(tokenMessageMe);
+//
+//					for (Integer neighborId : AppConfig.myServentInfo.getNeighbors()) {
+//						Message tokenMessage = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.getInfoById(neighborId), vectorClock);
+//						MessageUtil.sendMessage(tokenMessage);
 //					}
-//
-//					//Komitujemo lokalno poslatu poruku
-//					Message abTokenCommitMessage = new AbTokenMessage(AppConfig.myServentInfo, AppConfig.myServentInfo, myClock);
-//					CausalBroadcastShared.commitCausalMessage(abTokenCommitMessage, this);
-//
-//					//Belezimo svoj rezultat
-//					AbSnapshotResult myResult = new AbSnapshotResult(AppConfig.myServentInfo.getId(),
-//							bitcakeManager.getCurrentBitcakeAmount(),
-//							((AbBitcakeManager) bitcakeManager).getSent(),
-//							((AbBitcakeManager) bitcakeManager).getReceived());
-//					collectedAbValues.put(AppConfig.myServentInfo.getId(), myResult);
 					break;
 
 				case NONE:
@@ -223,6 +201,7 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 					}
 
 					AppConfig.timestampedStandardPrint("Total bitcakes in system (AB): " + totalBitcakes);
+					((AbBitcakeManager) bitcakeManager).resetSnapshotState();
 					collectedAbValues.clear();
 					break;
 
